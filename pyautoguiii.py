@@ -1,4 +1,3 @@
-
 import random
 import pyautogui as py
 
@@ -21,14 +20,15 @@ while welcome_panel == 'No' :
         welcome_panel = py.confirm(text='Welcome to the game, Are you ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
 
 if welcome_panel == 'Yes' :
-    username = py.prompt(text='First enter your name please', title='Name panel', default='Your name')
+    username = py.prompt(text='First enter your name please', title='Name panel') 
+
     while not username :                                                                                                    #????????
-        canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
-        if canceling == 'Yes' :
+        canceling = py.confirm(text='An error has occurred, this error may be due to exiting the program or due to not entering the name', title='Unknow error panel', buttons=['Enter a name', 'Exit'])
+        if canceling == 'Exit' :
             canceling_2 = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
             break
-        if canceling == 'No' :
-            username = py.prompt(text='First enter your name please', title='Name panel', default='Your name')
+        if canceling == 'Enter a name' :
+            username = py.prompt(text='First enter your name please', title='Name panel')
     else :
         which_game = py.confirm(text=f'{username} which game do you want ?', title='select game panel', buttons=['User - Bot', 'Bot - Bot', 'User - User', 'Rull game', 'Details', 'Exit'])
 
@@ -173,3 +173,16 @@ elif which_game == 'User - User' :
 #     while canceling == 'No' :
 #         which_game = py.confirm(text=f'{username} which game do you want ?', title='select game panel', buttons=['User - Bot', 'Bot - Bot', 'User - User', 'Rull game', 'Details', 'Exit'])
 #         break
+
+
+
+
+
+
+
+
+
+#hads adad
+#por ya poch
+#hads mouse
+#timer
