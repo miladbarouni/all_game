@@ -1,7 +1,59 @@
-import random
+
 import pyautogui as py
+import random
+
+confirmation_rulls_game = 0
+confirmation_details = 0
+
+welcome_panel = py.confirm(text='Welcome to the game, before play please read \n     both of the Rulls game and Details to start', title='Welcome panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
+
+while confirmation_rulls_game < 1 or confirmation_details < 1 :
+
+    if welcome_panel == 'Menu game' :
+        alert_before_welcome_panel = py.alert(text='You have not read Rulls game and Details ,read and then click on Menu game', title='Welcome panel')
+        welcome_panel = py.confirm(text='please read both of the Rulls game and Details to start', title='Welcome panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
+    elif welcome_panel == 'Rulls game' :
+        rulls_game_panel = py.confirm(text='Rull of the game: \n1. Playing the games means you have accepted the complete rules of the game \n2. When your opponent is a robot, his movement is chosen by chance and you have to accept the result \n3. If you make a change in the source code of the game, this is cheating and you will lose the game \n4. During the game, two users should not show each other their next move to the opponent \n5. If you quit the game, your opponent will win the game.', title='Rulls game panel', buttons=['I agree', 'I dont agree'])
+        if rulls_game_panel == 'I agree' :
+            confirmation_rulls_game += 1
+            welcome_panel = py.confirm(text='Thanks for reading Rulls game ,if you have not readen Details else please read it and then click on Menu game to start', title='Rulls game panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
+        elif rulls_game_panel == 'I dont agree' :
+            quit_panel = py.confirm(text='if you want to play click on Back button and read it or if you want quit the game click on Exit button', title='Rulls game panel', buttons=['Back', 'Exit'])
+            if quit_panel == 'Back' :
+                welcome_panel = py.confirm(text='Welcome to the game, before play please read \n     both of the Rulls game and Details to start', title='Welcome panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
+            if quit_panel == 'Exit' :
+                quit_panel = py.confirm(text='Are you sure to quit ? ', title='Quit panel', buttons=['Yes', 'No'])
+                if quit_panel == 'Yes' :
+                    quit_panel = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
+                    break
+                elif quit_panel == 'No' :
+                    welcome_panel = py.confirm(text='Welcome to the game, before play please read \n     both of the Rulls game and Details to start', title='Welcome panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
+    elif welcome_panel == 'Details' :
+        confirmation_details += 1
+        details_game_panel = py.alert(text='This package game produced by Milad Barouni the Ways of communication by \nEmail : milad.baroun@gmail.com \nPhone number : +989177719601', title='Details panel')
+        welcome_panel = py.confirm(text='Thanks for reading details game ,if you have not readen rulls game else please read it and then click on Menu game to start', title='Details game panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
+    elif welcome_panel == 'Exit' :
+        quit_panel = py.confirm(text='Are you sure to quit ? ', title='Quit panel', buttons=['Yes', 'No'])
+        if quit_panel == 'Yes' :
+            quit_panel = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
+            break
+        elif quit_panel == 'No' :
+            welcome_panel = py.confirm(text='Welcome to the game, before play please read \n     both of the Rulls game and Details to start', title='Welcome panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
+   
 
 
+
+number_played_games = 0
+
+while number_played_games <= 2 and welcome_panel == 'Menu game' :
+    menu_game_panel = py.confirm(text='Select one of the game', title='Menu panel', buttons=['Rock_Paper_Scissors', 'Guess_number', 'Gol_ya_Pooch', 'Esm_Famil', 'Mouse_Movement', 'Exit'])
+    
+    if menu_game_panel == 'Rock_Paper_Scissors' :
+        number_played_games += 1
+
+
+
+        
 all_bot_name = ['Milad', 'Misaq', 'Abas', 'Mohammad', 'Aida', 'Neda', 'Sepideh', 'Mahsa']
 action = ['Rock', 'Paper', 'Scissor']
 user_1 = 0
@@ -209,16 +261,121 @@ while which_game == 'User - Bot' or 'Bot - Bot' or 'User - User' :
                 finally_resualt = py.alert(text=f'game is equal, Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
             break
 
-
         
-    
 
 
 
 
-#hads adad
-#por ya poch
-#hads mouse
-#timer
-#esm famil
-#test hoosh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    elif menu_game_panel == 'Guess_number' :
+        number_played_games += 1
+        rounds = 1
+        len_str_number = ''
+
+        how_many_len = int(py.prompt(text='Welcome to Guess number \nHow many digits is the selected number ?', title='Entery len number'))
+
+        while how_many_len > 5 :
+            how_many_len = int(py.prompt(text='Your digits number must be lower than 5 ,enter digits the number again ?', title='Entery len number'))
+
+        how_many_round = int(py.prompt(text='How many rounds do you want to try your luck ?', title='Entery round number'))
+
+        for i in range(how_many_len) :
+            len_str_number += '9'
+            len_int_number = int(len_str_number)
+
+        random_number = random.randint(1, len_int_number + 1)
+
+        entry_random_number = int(py.prompt(text=f'guess and enter your number', title='Entery random number'))
+
+        while rounds < how_many_round :
+            rounds += 1
+            if entry_random_number == random_number :
+                entry_random_number = py.alert(text=f'great {entry_random_number} is the currect number', title='Win panel')
+                win_alert = py.alert(text=f'congratulations, you win the game in {rounds - 1} rounds ', title='Win panel')
+                break
+            elif entry_random_number > random_number :
+                entry_random_number = int(py.prompt(text=f'Round {rounds}, {entry_random_number} is bigger than real number guess again enter another number', title='Entery random number'))
+            elif entry_random_number < random_number :
+                entry_random_number = int(py.prompt(text=f'Round {rounds}, {entry_random_number} is lower than real number guess again enter another number', title='Entery random number'))
+        else: 
+            lose_alert = py.alert(text=f'We are sorry your chance is finish, you lose the game', title='Lose panel')
+
+
+
+    elif menu_game_panel == 'Gol_ya_Pooch' :
+        number_played_games += 1
+        print('d')
+    elif menu_game_panel == 'Esm_Famil' :
+        number_played_games += 1
+        print('d')
+    elif menu_game_panel == 'Mouse_Movement' :
+        number_played_games += 1
+        print('d')
+    elif menu_game_panel == 'Exit' :
+        break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
