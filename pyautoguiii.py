@@ -352,6 +352,90 @@ while number_played_games <= 2 and welcome_panel == 'Menu game' :
 
 
 
+import pyautogui as py
+import time
+import random
+
+
+screen_size_x, screen_size_y = py.size()
+
+half_screen_size_x = screen_size_x / 2
+half_screen_size_y = screen_size_y / 2
+
+random_number = random.randint(1, 4)
+
+welcome_panel = py.confirm(text='Welcome to guess mouse movement game, Are you ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
+
+while welcome_panel == 'No' :
+    canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
+    if canceling == 'Yes' :
+        canceling_2 = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
+        break
+    elif canceling == 'No' :
+        welcome_panel = py.confirm(text='Welcome to guess mouse movement game, Are you ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
+
+if welcome_panel == 'Yes' :
+    select_one_point = py.alert(text='You should select one point on monitor before 3 second ', title='Mouse movement game')     
+
+
+time.sleep(1)
+user_click_x, user_click_y = py.position()
+robot_click_x, robot_click_y = py.position()
+
+# result = py.alert(text='', title='Mouse movement game')     
+
+
+if robot_click_x > half_screen_size_x and robot_click_y < half_screen_size_y :
+    right_result = py.alert(text='You select up and right position \n ', title='Mouse movement game')     
+    print('up right')
+elif robot_click_x > half_screen_size_x and robot_click_y > half_screen_size_y :
+    print('down right')
+elif robot_click_x < half_screen_size_x and robot_click_y < half_screen_size_y :
+    print('up left')
+elif robot_click_x < half_screen_size_x and robot_click_y > half_screen_size_y :
+    print('down left')
+
+
+
+if user_click_x > half_screen_size_x and user_click_y < half_screen_size_y :
+    right_result = py.alert(text='You select up and right position \n ', title='Mouse movement game')     
+    print('up right')
+elif user_click_x > half_screen_size_x and user_click_y > half_screen_size_y :
+    print('down right')
+elif user_click_x < half_screen_size_x and user_click_y < half_screen_size_y :
+    print('up left')
+elif user_click_x < half_screen_size_x and user_click_y > half_screen_size_y :
+    print('down left')
+
+
+# if 
+# right_up_screen_x = 960
+# right_up_screen_y = 540
+# right_down_screen_x = 
+# right_down_screen_y = 
+# left_up_screen_x =
+# left_up_screen_y = 
+# left_down_screen_x = 
+# left_down_screen_y = 
+
+# print(screen_size_x)
+# print(screen_size_y)
+# x = 960
+# y = 540
+
+# print(moves_x)
+# print(moves_y)
+
+# random_moves_x = random.randint(1, screen_size_x)
+# random_moves_y = random.randint(1, screen_size_y)
+
+# print(user_click_x)
+# print(user_click_y)
+
+
+
+
+
 
 
 
