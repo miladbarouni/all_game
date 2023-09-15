@@ -281,13 +281,17 @@ while number_played_games < 2 :   #and thanks_user != ''
                 break
             elif entry_random_number > random_number :
                 entry_random_number = int(py.prompt(text=f'Round {rounds}, {entry_random_number} is bigger than real number guess again enter another number', title='Entery random number'))
-            elif entry_random_number < random_number :
+            else : #entry_random_number < random_number :
                 entry_random_number = int(py.prompt(text=f'Round {rounds}, {entry_random_number} is lower than real number guess again enter another number', title='Entery random number'))
         else: 
-            lose_alert = py.alert(text=f'We are sorry your chance is finish, you lose the game', title='Lose panel')
+            lose_alert = py.alert(text=f'We are sorry your chance is finish, you lose the game \nComputer number was {random_number}', title='Lose panel')
+
+        menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['Rock_Paper_Scissors', 'Guess_number', 'Gol_ya_Pooch', 'Esm_Famil', 'Mouse_Movement', 'Exit'])
 
     elif menu_game_panel == 'Gol_ya_Pooch' :
         number_played_games += 1
+        user_gol_ya_pooch = 0
+        bot_gol_ya_pooch = 0
         name_box = ['Box 1', 'Box 2']
         welcome_panel = py.confirm(text='Welcome to Gol_ya_Pooch game, Are you ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
         while welcome_panel == 'No' :
@@ -299,17 +303,23 @@ while number_played_games < 2 :   #and thanks_user != ''
                 welcome_panel = py.confirm(text='Welcome to Gol_ya_Pooch game, Are you ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
         
         how_many_round = int(py.prompt(text='How many rounds do you want to try your luck ?', title='Entery round number'))
-        Gol_ya_Pooch_panel = py.confirm(text='Select one of the box ?', title='Gol_ya_Pooch panel', buttons=['Box 1', 'Box 2'])
-        random_name_box = random.choice(name_box)
         round_game_played = 0
         while round_game_played < how_many_round : 
+            random_name_box = random.choice(name_box)
+            Gol_ya_Pooch_panel = py.confirm(text='Select one of the box ?', title='Gol_ya_Pooch panel', buttons=['Box 1', 'Box 2'])
+
             round_game_played += 1
             if Gol_ya_Pooch_panel == random_name_box :
                 resualt_Gol_ya_Pooch_game = py.alert(text=f'round {round_game_played}/{how_many_round} , Resualt : You win', title='Gol_ya_Pooch panel')
+                user_gol_ya_pooch += 1
             else :
                 resualt_Gol_ya_Pooch_game = py.alert(text=f'round {round_game_played}/{how_many_round} , Resualt : You lose', title='Gol_ya_Pooch panel')
+                bot_gol_ya_pooch += 1
 
-            
+        all_result_gol_ya_pooch = py.alert(text=f'All result : \n{username} {user_gol_ya_pooch} \nRobot {bot_gol_ya_pooch}', title='Lose panel')
+
+        menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['Rock_Paper_Scissors', 'Guess_number', 'Gol_ya_Pooch', 'Esm_Famil', 'Mouse_Movement', 'Exit'])
+
 
 
 
