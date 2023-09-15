@@ -23,7 +23,7 @@ while confirmation_rulls_game < 1 or confirmation_details < 1 :
         alert_before_welcome_panel = py.alert(text='You have not read "Rulls game" and "Details" \nplease read and then click on Menu game', title='Welcome panel')
         welcome_panel = py.confirm(text='please read both of the Rulls game and Details to start', title='Welcome panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
     elif welcome_panel == 'Rulls game' :
-        rulls_game_panel = py.confirm(text='Rull of the game: \n1. Playing the games means you have accepted the complete rules of the game \n2. When your opponent is a robot, his movement is chosen by chance and you have to accept the result \n3. If you make a change in the source code of the game, this is cheating and you will lose the game \n4. During the game, two users should not show each other their next move to the opponent \n5. If you quit the game, your opponent will win the game.', title='Rulls game panel', buttons=['I agree', 'I dont agree'])
+        rulls_game_panel = py.confirm(text='Rull of the game: \n1. Playing the games means you have accepted the complete rules of the game \n2. When your opponent is a robot, his movement is chosen by chance and you have to accept the result \n3. If you make a change in the source code of the game, this is cheating and you will lose the game \n4. During the game, two users should not show each other their next move to the opponent \n5. If you quit the game, your opponent will win the game \n6.this version of game is free so you can play just 2 games \n7.for buying full version check "Details" to see communication ways', title='Rulls game panel', buttons=['I agree', 'I dont agree'])
         if rulls_game_panel == 'I agree' :
             confirmation_rulls_game += 1
             welcome_panel = py.confirm(text='Thanks for reading Rulls game ,if you have not readen Details else please read it and then click on Menu game to start', title='Rulls game panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
@@ -40,7 +40,7 @@ while confirmation_rulls_game < 1 or confirmation_details < 1 :
                     break
     elif welcome_panel == 'Details' :
         confirmation_details += 1
-        details_game_panel = py.alert(text='This package game produced by Milad Barouni \nthe Ways of communication : \nby Email : milad.baroun@gmail.com \nPhone number : +989177719601', title='Details panel')
+        details_game_panel = py.alert(text='This package game produced by Milad Barouni \nBuying and the Ways of communication : \nby Email : milad.baroun@gmail.com \nPhone number : +989177719601', title='Details panel')
         welcome_panel = py.confirm(text='Thanks for reading details game ,if you have not readen rulls game else please read it and then click on Menu game to start', title='Details game panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
     else :
         quit_panel = py.confirm(text='Are you sure to quit ? ', title='Quit panel', buttons=['Yes', 'No'])
@@ -72,8 +72,9 @@ else :
     thanks_user = py.alert(text=f'click "Ok" to start the game', title=f'{username} panel')
 
 number_played_games = 0
-while number_played_games <= 2 :   #and thanks_user != ''
-    menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['Rock_Paper_Scissors', 'Guess_number', 'Gol_ya_Pooch', 'Esm_Famil', 'Mouse_Movement', 'Exit'])
+
+menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['Rock_Paper_Scissors', 'Guess_number', 'Gol_ya_Pooch', 'Esm_Famil', 'Mouse_Movement', 'Exit'])
+while number_played_games < 2 :   #and thanks_user != ''
 
     if menu_game_panel == 'Rock_Paper_Scissors' :
         number_played_games += 1
@@ -329,59 +330,78 @@ while number_played_games <= 2 :   #and thanks_user != ''
         half_screen_size_y = screen_size_y / 2
 
 
-        welcome_panel = py.confirm(text='Welcome to guess movement game, Are you ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
-        all_round_game = int(py.prompt(text=f'After start you have 3 second to select a point \nHow many rounds do you want to play ? \n', title='Welcome panel'))
+        welcome_Mouse_Movement_panel = py.confirm(text='Welcome to guess movement game, Ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
+        while welcome_Mouse_Movement_panel == 'No' :
+            canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
+            if canceling == 'No' :
+                welcome_Mouse_Movement_panel = py.confirm(text='Welcome to guess movement game, Ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
+            else :
+                canceling = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
+                break
+        else:
+            all_round_game = int(py.prompt(text=f'After start, you have 3 second to select a point \nHow many rounds do you want to play ? \n', title='Round number panel'))
 
-
+        round_win = 0
         round_game_played = 0
         while round_game_played < all_round_game :
             random_screen_size_x = random.randint(0, screen_size_x)
             random_screen_size_y = random.randint(0, screen_size_y)
-            time.sleep(1)
+            time.sleep(1.5)
             user_click_x, user_click_y = py.position()
 
             round_game_played += 1
             if user_click_x <= half_screen_size_x and user_click_y <= half_screen_size_y :        #up_left
                 if random_screen_size_x <= half_screen_size_x and random_screen_size_y <= half_screen_size_y :
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You win \nYou select up and left \ncomputer select up and left', title='Mouse movement game')     
+                    round_win += 1
                 elif random_screen_size_x <= half_screen_size_x and random_screen_size_y >= half_screen_size_y :     #down_left
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You lose \nYou select up and left \ncomputer select down and left', title='Mouse movement game')     
                 elif random_screen_size_x >= half_screen_size_x and random_screen_size_y <= half_screen_size_y :    #up_right
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You lose \nYou select up and left \ncomputer select up and right', title='Mouse movement game')     
-                elif random_screen_size_x >= half_screen_size_x and random_screen_size_y >= half_screen_size_y :    #down_right
+                else : #random_screen_size_x >= half_screen_size_x and random_screen_size_y >= half_screen_size_y :    #down_right
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You lose \nYou select up and left \ncomputer select down and right', title='Mouse movement game')     
 
             elif user_click_x <= half_screen_size_x and user_click_y >= half_screen_size_y :        #down_left
                 if random_screen_size_x <= half_screen_size_x and random_screen_size_y >= half_screen_size_y :   
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You win \nYou select down and left \ncomputer select down and left', title='Mouse movement game')     
+                    round_win += 1
                 elif random_screen_size_x <= half_screen_size_x and random_screen_size_y <= half_screen_size_y :     #up_left
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You lose \nYou select down and left \ncomputer select up and left', title='Mouse movement game')     
                 elif random_screen_size_x >= half_screen_size_x and random_screen_size_y <= half_screen_size_y :    #up_right
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You lose \nYou select down and left \ncomputer select up and right', title='Mouse movement game')     
-                elif random_screen_size_x >= half_screen_size_x and random_screen_size_y >= half_screen_size_y :    #down_right
+                else : #random_screen_size_x >= half_screen_size_x and random_screen_size_y >= half_screen_size_y :    #down_right
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You lose \nYou select down and left \ncomputer select down and right', title='Mouse movement game')     
 
             elif user_click_x >= half_screen_size_x and user_click_y <= half_screen_size_y :        #up_right
                 if random_screen_size_x >= half_screen_size_x and random_screen_size_y <= half_screen_size_y :   
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You win \nYou select up and right \ncomputer select up and right', title='Mouse movement game')     
+                    round_win += 1
                 elif random_screen_size_x <= half_screen_size_x and random_screen_size_y <= half_screen_size_y :     #up_left
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You lose \nYou select up and right \ncomputer select up and left', title='Mouse movement game')     
-                elif random_screen_size_x >= half_screen_size_x and random_screen_size_y >= half_screen_size_y :    #down_left
+                elif random_screen_size_x <= half_screen_size_x and random_screen_size_y >= half_screen_size_y :    #down_left
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You lose \nYou select up and right \ncomputer select down and left', title='Mouse movement game')     
-                elif random_screen_size_x >= half_screen_size_x and random_screen_size_y >= half_screen_size_y :    #down_right
+                else :     #down_right
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You lose \nYou select up and right \ncomputer select down and right', title='Mouse movement game')     
 
-            elif user_click_x >= half_screen_size_x and user_click_y >= half_screen_size_y :        #down_right
+            else : #user_click_x >= half_screen_size_x and user_click_y >= half_screen_size_y :        #down_right
                 if random_screen_size_x >= half_screen_size_x and random_screen_size_y >= half_screen_size_y :   
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You win \nYou select down and right \ncomputer select down and right', title='Mouse movement game')     
+                    round_win += 1
                 elif random_screen_size_x <= half_screen_size_x and random_screen_size_y <= half_screen_size_y :     #up_left
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You lose \nYou select down and right \ncomputer select up and left', title='Mouse movement game')     
-                elif random_screen_size_x >= half_screen_size_x and random_screen_size_y >= half_screen_size_y :    #down_left
+                elif random_screen_size_x <= half_screen_size_x and random_screen_size_y >= half_screen_size_y :    #down_left
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You lose \nYou select down and right \ncomputer select down and left', title='Mouse movement game')     
-                elif random_screen_size_x >= half_screen_size_x and random_screen_size_y >= half_screen_size_y :    #up_right
+                else : #random_screen_size_x >= half_screen_size_x and random_screen_size_y <= half_screen_size_y :    #up_right
                     result_point = py.alert(text=f'Round {round_game_played}/{all_round_game} You lose \nYou select down and right \ncomputer select up and right', title='Mouse movement game')     
         else :
-            print('d')
+            if round_win > (round_game_played / 2) :
+                finally_result_point = py.alert(text=f'Finally result {username} win the game \nWin {round_win} round \nLose {round_game_played - round_win} round ', title='result Mouse movement game')     
+            elif round_win < (round_game_played / 2) :
+                finally_result_point = py.alert(text=f'Finally result {username} lose the game \nWin {round_win} round \nLose {round_game_played - round_win} round', title='result Mouse movement game')     
+            else :
+                finally_result_point = py.alert(text=f'Finally result {username} draw the game \nWin {round_win} round \nLose {round_game_played - round_win} round', title='result Mouse movement game')     
+            menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['Rock_Paper_Scissors', 'Guess_number', 'Gol_ya_Pooch', 'Esm_Famil', 'Mouse_Movement', 'Exit'])
+
 
 
 
@@ -394,9 +414,9 @@ while number_played_games <= 2 :   #and thanks_user != ''
 
 
 else :
-    pass
-      
+    stop_free_game = py.alert(text='Sorry for stopying the game \nYou can just play 2 free games \nfor buying unlimited version check "Details" \nEmail : milad.baroun@gmail.com \nPhone number : +989177719601', title='Finish game :(')     
 
+      
 
 
 
