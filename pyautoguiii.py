@@ -73,7 +73,7 @@ else :
 
 number_played_games = 0
 
-menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['Rock_Paper_Scissors', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Esm_Famil', 'Mouse_Movement', 'Change username', 'Exit'])
+menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Esm_Famil', 'Mouse_Movement', 'Change username', 'Exit'])
 while number_played_games < 2 :   #and thanks_user != ''
 
     if menu_game_panel == 'Change username' :
@@ -86,15 +86,15 @@ while number_played_games < 2 :   #and thanks_user != ''
                 canceling_2 = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
                 break    
         else :
-            menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['Rock_Paper_Scissors', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Esm_Famil', 'Mouse_Movement', 'Change username', 'Exit'])
+            menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Esm_Famil', 'Mouse_Movement', 'Change username', 'Exit'])
 
-    elif menu_game_panel == 'Rock_Paper_Scissors' :
+    elif menu_game_panel == '✊_✋_✌️' :
         number_played_games += 1
-        welcome_Rock_Paper_Scissors_panel = py.confirm(text='Welcome to Rock_Paper_Scissors game, ready to start ?', title='Welcome Rock_Paper_Scissors panel ', buttons=['Yes', 'No'])
+        welcome_Rock_Paper_Scissors_panel = py.confirm(text='Welcome to ✊_✋_✌️ game, ready to start ?', title='Welcome ✊_✋_✌️ panel ', buttons=['Yes', 'No'])
         while welcome_Rock_Paper_Scissors_panel == 'No' :
             canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
             if canceling == 'No' :
-                welcome_Rock_Paper_Scissors_panel = py.confirm(text='Welcome to Rock_Paper_Scissors game, Are you ready to start ?', title='Welcome Rock_Paper_Scissors panel ', buttons=['Yes', 'No'])
+                welcome_Rock_Paper_Scissors_panel = py.confirm(text='Welcome to ✊_✋_✌️ game, Are you ready to start ?', title='Welcome ✊_✋_✌️ panel ', buttons=['Yes', 'No'])
             else :
                 canceling = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
                 break
@@ -109,13 +109,13 @@ while number_played_games < 2 :   #and thanks_user != ''
             if How_determine_winner == 'Whoever reaches the entry number' :
                 while user_1 < round_number and bot_1 < round_number :
                     random_action = random.choice(action)
-                    which_game = py.confirm(text=f'{username} which action do you want to select ?', title='select action panel', buttons=['Rock', 'Paper', 'Scissor'])
+                    which_game = py.confirm(text=f'{username} which action do you want to select ?', title='select action panel', buttons=['✊', '✋', '✌️'])
                     number_played_Rock_Paper_Scissors += 1
                     if which_game == random_action :
                         user_1 += 1
                         bot_1 += 1
                         resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \n{random_bot_name_1} selected {random_action} \nResualt : \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='User - Bot panel')
-                    elif ( which_game == 'Paper' and random_action == 'Rock' ) or ( which_game == 'Rock' and random_action == 'Scissor' ) or ( which_game == 'Scissor' and random_action == 'Paper' ) :
+                    elif ( which_game == '✋' and random_action == '✊' ) or ( which_game == '✊' and random_action == '✌️' ) or ( which_game == '✌️' and random_action == '✋' ) :
                         user_1 += 1
                         resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} You win \n{random_bot_name_1} selected {random_action} \nResualt : \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='User - Bot panel')
                     else :
@@ -132,14 +132,14 @@ while number_played_games < 2 :   #and thanks_user != ''
 
             else :
                 while number_played_Rock_Paper_Scissors < round_number :
-                    which_game = py.confirm(text=f'{username} which action do you want to select ?', title='select action panel', buttons=['Rock', 'Paper', 'Scissor'])
+                    which_game = py.confirm(text=f'{username} which action do you want to select ?', title='select action panel', buttons=['✊', '✋', '✌️'])
                     random_action = random.choice(action)
                     number_played_Rock_Paper_Scissors += 1
                     if which_game == random_action :
                         user_1 += 1
                         bot_1 += 1
                         resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \nResualt : \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='User - Bot panel')
-                    elif ( which_game == 'Paper' and random_action == 'Rock' ) or ( which_game == 'Rock' and random_action == 'Scissor' ) or ( which_game == 'Scissor' and random_action == 'Paper' ) :
+                    elif ( which_game == '✋' and random_action == '✊' ) or ( which_game == '✊' and random_action == '✌️' ) or ( which_game == '✌️' and random_action == '✋' ) :
                         user_1 += 1
                         resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} You win \nResualt : \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='User - Bot panel')
                     else :
@@ -159,14 +159,14 @@ while number_played_games < 2 :   #and thanks_user != ''
             username_2 = py.prompt(text='enter the second name player please', title='Name panel', default='second name player')
             if How_determine_winner == 'Whoever reaches the entry number' :
                 while user_1 < round_number or user_2 < round_number :
-                    which_game_1 = py.confirm(text=f'{username_1} which action do you want to select ?', title='select action panel', buttons=['Rock', 'Paper', 'Scissor'])
-                    which_game_2 = py.confirm(text=f'{username_2} which action do you want to select ?', title='select action panel', buttons=['Rock', 'Paper', 'Scissor'])
+                    which_game_1 = py.confirm(text=f'{username_1} which action do you want to select ?', title='select action panel', buttons=['✊', '✋', '✌️'])
+                    which_game_2 = py.confirm(text=f'{username_2} which action do you want to select ?', title='select action panel', buttons=['✊', '✋', '✌️'])
                     number_played_Rock_Paper_Scissors += 1
                     if which_game_1 == which_game_2 :
                         user_1 += 1
                         user_2 += 1
                         resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \nResualt : \n {username_1} : {user_1} \n {username_2} : {user_2}', title='User - User panel')
-                    elif ( which_game_1 == 'Paper' and which_game_2 == 'Rock' ) or ( which_game_1 == 'Rock' and which_game_2 == 'Scissor' ) or ( which_game_1 == 'Scissor' and which_game_2 == 'Paper' ) :
+                    elif ( which_game_1 == '✋' and which_game_2 == '✊' ) or ( which_game_1 == '✊' and which_game_2 == '✌️' ) or ( which_game_1 == '✌️' and which_game_2 == '✋' ) :
                         user_1 += 1
                         resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {username_1} win \nResualt : \n {username_1} : {user_1} \n {username_2} : {user_2}', title='User - User panel')
                     else :
@@ -183,14 +183,14 @@ while number_played_games < 2 :   #and thanks_user != ''
 
             else :
                 while number_played_Rock_Paper_Scissors < round_number :
-                    which_game_1 = py.confirm(text=f'{username_1} which action do you want to select ?', title='select action panel', buttons=['Rock', 'Paper', 'Scissor'])
-                    which_game_2 = py.confirm(text=f'{username_2} which action do you want to select ?', title='select action panel', buttons=['Rock', 'Paper', 'Scissor'])
+                    which_game_1 = py.confirm(text=f'{username_1} which action do you want to select ?', title='select action panel', buttons=['✊', '✋', '✌️'])
+                    which_game_2 = py.confirm(text=f'{username_2} which action do you want to select ?', title='select action panel', buttons=['✊', '✋', '✌️'])
                     number_played_Rock_Paper_Scissors += 1
                     if which_game_1 == which_game_2 :
                         user_1 += 1
                         user_2 += 1
                         resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \nResualt : \n {username_1} : {user_1} \n {username_2} : {user_2}', title='User - User panel')
-                    elif ( which_game_1 == 'Paper' and which_game_2 == 'Rock' ) or ( which_game_1 == 'Rock' and which_game_2 == 'Scissor' ) or ( which_game_1 == 'Scissor' and which_game_2 == 'Paper' ) :
+                    elif ( which_game_1 == '✋' and which_game_2 == '✊' ) or ( which_game_1 == '✊' and which_game_2 == '✌️' ) or ( which_game_1 == '✌️' and which_game_2 == '✋' ) :
                         user_1 += 1
                         resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {user_1} win \nResualt : \n {username_1} : {user_1} \n {username_2} : {user_2}', title='User - User panel')
                     else :
@@ -227,7 +227,7 @@ while number_played_games < 2 :   #and thanks_user != ''
                         bot_1 += 1
                         bot_2 += 1
                         resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \nResualt : \n {random_bot_name_1} {random_action_1} {bot_1} \n {random_bot_name_2} {random_action_2} {bot_1} ', title='Bot - Bot panel')
-                    elif ( random_action_1 == 'Paper' and random_action_2 == 'Rock' ) or ( random_action_1 == 'Rock' and random_action_2 == 'Scissor' ) or ( random_action_1 == 'Scissor' and random_action_2 == 'Paper' ) :
+                    elif ( random_action_1 == '✋' and random_action_2 == '✊' ) or ( random_action_1 == '✊' and random_action_2 == '✌️' ) or ( random_action_1 == '✌️' and random_action_2 == '✋' ) :
                         bot_1 += 1
                         resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {random_bot_name_1} win the game, Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
                     else :
@@ -250,7 +250,7 @@ while number_played_games < 2 :   #and thanks_user != ''
                         bot_1 += 1
                         bot_2 += 1
                         resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal, Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
-                    elif ( random_action_1 == 'Paper' and random_action_2 == 'Rock' ) or ( random_action_1 == 'Rock' and random_action_2 == 'Scissor' ) or ( random_action_1 == 'Scissor' and random_action_2 == 'Paper' ) :
+                    elif ( random_action_1 == '✋' and random_action_2 == '✊' ) or ( random_action_1 == '✊' and random_action_2 == '✌️' ) or ( random_action_1 == '✌️' and random_action_2 == '✋' ) :
                         bot_1 += 1
                         resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} , Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
                     else :
@@ -298,7 +298,7 @@ while number_played_games < 2 :   #and thanks_user != ''
         else: 
             lose_alert = py.alert(text=f'We are sorry your chance is finish, you lose the game \nComputer number was {random_number}', title='Lose panel')
 
-        menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['Rock_Paper_Scissors', 'Guess_number', 'Gol_ya_Pooch', 'Esm_Famil', 'Mouse_Movement', 'Exit'])
+        menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Esm_Famil', 'Mouse_Movement', 'Exit'])
 
     elif menu_game_panel == 'Gol_ya_Pooch' :
         number_played_games += 1
