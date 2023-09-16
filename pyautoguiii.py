@@ -73,10 +73,22 @@ else :
 
 number_played_games = 0
 
-menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['Rock_Paper_Scissors', 'Guess_number', 'Gol_ya_Pooch', 'Esm_Famil', 'Mouse_Movement', 'Exit'])
+menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['Rock_Paper_Scissors', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Esm_Famil', 'Mouse_Movement', 'Change username', 'Exit'])
 while number_played_games < 2 :   #and thanks_user != ''
 
-    if menu_game_panel == 'Rock_Paper_Scissors' :
+    if menu_game_panel == 'Change username' :
+        username = py.prompt(text=f'{username} Enter your new name please', title='New name panel') 
+        while not username :                                                                                                    
+            canceling = py.confirm(text='An error has occurred, this error may be due to exiting the program or due to not entering the name', title='Unknow error panel', buttons=['Enter a name', 'Exit'])
+            if canceling == 'Enter a name' :
+                username = py.prompt(text=f'{username} Enter your new name please', title='New name panel') 
+            else :
+                canceling_2 = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
+                break    
+        else :
+            menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['Rock_Paper_Scissors', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Esm_Famil', 'Mouse_Movement', 'Change username', 'Exit'])
+
+    elif menu_game_panel == 'Rock_Paper_Scissors' :
         number_played_games += 1
         welcome_Rock_Paper_Scissors_panel = py.confirm(text='Welcome to Rock_Paper_Scissors game, ready to start ?', title='Welcome Rock_Paper_Scissors panel ', buttons=['Yes', 'No'])
         while welcome_Rock_Paper_Scissors_panel == 'No' :
@@ -330,6 +342,24 @@ while number_played_games < 2 :   #and thanks_user != ''
         print('d')
 
     
+    elif menu_game_panel == 'Jorat_Haghighat' :
+        number_played_games += 1
+        jorat_list = ['Kole direct inestat ro neshon bede', 'Dad bezan bego man divoonam', 'Be sorat random be yeki az mokhatabat zang bezan bego dooset daram', 'Ye sandewich be hesab khodet sefaresh bede', 'Az inja ta park tv piade boro', 'Ye music ke doos dari ba sedaye boland bekhon']
+        haghighat_list = ['Chandbar ashegh shodi ?', 'Bozorg tarin razet chie ?', 'Ajibtarin adati ke dari chie ?', 'Age ye rooz omr koni chi kar tooye on rooz mikoni ?', 'Age mitonesi chizi ro toye sooratet taghir bedi chi bood ?']
+
+        welcome_Jorat_Haghighat_panel = py.confirm(text='Welcome to Jorat_Haghighat game, Ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
+        while welcome_Mouse_Movement_panel == 'No' :
+            canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
+            if canceling == 'No' :
+                welcome_Jorat_Haghighat_panel = py.confirm(text='Welcome to Jorat_Haghighat game, Ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
+            else :
+                canceling = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
+                break
+        else:
+                welcome_Jorat_Haghighat_panel = py.confirm(text='Select one of the box', title='Welcome panel', buttons=['Yes', 'No'])
+
+
+
 
     elif menu_game_panel == 'Mouse_Movement' :
         number_played_games += 1
