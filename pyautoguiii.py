@@ -15,7 +15,7 @@ bot_1 = 0
 bot_2 = 0
 number_played_Rock_Paper_Scissors = 0
 
-welcome_panel = py.confirm(text='Welcome to the game, before play please read \n     both of the Rulls game and Details to start', title='Welcome panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
+welcome_panel = py.confirm(text='              Welcome to the game, before playing \nplease read both of the "Rulls" game and "Details" to start', title='Welcome panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
 
 while confirmation_rulls_game < 1 or confirmation_details < 1 :
 
@@ -26,7 +26,7 @@ while confirmation_rulls_game < 1 or confirmation_details < 1 :
         rulls_game_panel = py.confirm(text='Rull of the game: \n1. Playing the games means you have accepted the complete rules of the game \n2. When your opponent is a robot, his movement is chosen by chance and you have to accept the result \n3. If you make a change in the source code of the game, this is cheating and you will lose the game \n4. During the game, two users should not show each other their next move to the opponent \n5. If you quit the game, your opponent will win the game \n6.this version of game is free so you can play just 2 games \n7.for buying full version check "Details" to see communication ways', title='Rulls game panel', buttons=['I agree', 'I dont agree'])
         if rulls_game_panel == 'I agree' :
             confirmation_rulls_game += 1
-            welcome_panel = py.confirm(text='Thanks for reading Rulls game ,if you have not readen Details else please read it and then click on Menu game to start', title='Rulls game panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
+            welcome_panel = py.confirm(text='Thanks for reading "Rulls" game \nif you dont read "Details" game yet \nread and click on Menu game to start', title='Rulls game panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
         elif rulls_game_panel == 'I dont agree' :
             quit_panel = py.confirm(text='If you want to play read the "Rulls" and "Details" \nIf you dont agree quit the game and click on Exit', title='Rulls game panel', buttons=['Back', 'Exit'])
             if quit_panel == 'Back' :
@@ -41,7 +41,7 @@ while confirmation_rulls_game < 1 or confirmation_details < 1 :
     elif welcome_panel == 'Details' :
         confirmation_details += 1
         details_game_panel = py.alert(text='This package game produced by Milad Barouni \nBuying and the Ways of communication : \nby Email : milad.baroun@gmail.com \nPhone number : +989177719601', title='Details panel')
-        welcome_panel = py.confirm(text='Thanks for reading details game ,if you have not readen rulls game else please read it and then click on Menu game to start', title='Details game panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
+        welcome_panel = py.confirm(text='Thanks for reading "details" game \nif you dont read "rulls" game yet \nread and click on Menu game to start', title='Details game panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
     else :
         quit_panel = py.confirm(text='Are you sure to quit ? ', title='Quit panel', buttons=['Yes', 'No'])
         if quit_panel == 'No' :
@@ -50,16 +50,35 @@ while confirmation_rulls_game < 1 or confirmation_details < 1 :
             quit_panel = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
             break
 else :
-    welcome_panel = py.confirm(text='Thanks for reading', title='Welcome panel', buttons=['Menu game', 'Exit'])
-    if welcome_panel == 'Exit' :
+    welcome_panel = py.confirm(text='Thanks for reading', title='Welcome panel', buttons=['Menu game', 'Set password', 'Exit'])
+    while welcome_panel == 'Exit' :
         quit_panel = py.confirm(text='Are you sure to quit ? ', title='Quit panel', buttons=['Yes', 'No'])
         if quit_panel == 'No' :
-            welcome_panel = py.confirm(text='Thanks for reading', title='Welcome panel', buttons='Menu game')
+            welcome_panel = py.confirm(text='Thanks for reading', title='Welcome panel', buttons=['Menu game', 'Set password', 'Exit'])
         else :
             quit_panel = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
-            pass
-pass
-
+            break
+    if welcome_panel == 'Set password' :
+        password_login = py.prompt(text='Enter your password', title='Password panel')
+        password_login_input = py.prompt(text='         Your password is set \nTo continue enter your password', title='Password panel')
+        password_wrong = 0
+        while password_login != password_login_input :
+            password_wrong += 1
+            if password_wrong < 3 :
+                password_login_input = py.prompt(text='      Wrong password \nEnter your password again', title='Password panel')
+            else :
+                quit_panel = py.alert(text='You entered wrong password 3 times \n        We wish see you later again', title='Quit panel')
+                break
+        else :
+            welcome_panel = py.confirm(text='Thanks for set your password', title='Welcome panel', buttons=['Menu game', 'Exit'])
+            while welcome_panel == 'Exit' :
+                quit_panel = py.confirm(text='Are you sure to quit ? ', title='Quit panel', buttons=['Yes', 'No'])
+                if quit_panel == 'No' :
+                    welcome_panel = py.confirm(text='Thanks for set your password', title='Welcome panel', buttons=['Menu game', 'Exit'])
+                else :
+                    quit_panel = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
+                    break
+               
 username = py.prompt(text='First enter your name please', title='Name panel') 
 while not username :                                                                                                    
         canceling = py.confirm(text='An error has occurred, this error may be due to exiting the program or due to not entering the name', title='Unknow error panel', buttons=['Enter a name', 'Exit'])
@@ -330,7 +349,7 @@ while number_played_games < 2 :   #and thanks_user != ''
 
         all_result_gol_ya_pooch = py.alert(text=f'All result : \n{username} {user_gol_ya_pooch} \nRobot {bot_gol_ya_pooch}', title='Lose panel')
 
-        menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['Rock_Paper_Scissors', 'Guess_number', 'Gol_ya_Pooch', 'Esm_Famil', 'Mouse_Movement', 'Exit'])
+        menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Esm_Famil', 'Mouse_Movement', 'Exit'])
 
 
 
@@ -457,7 +476,6 @@ else :
     stop_free_game = py.alert(text='Sorry for stopying the game \nYou can just play 2 free games \nfor buying unlimited version check "Details" \nEmail : milad.baroun@gmail.com \nPhone number : +989177719601', title='Finish game :(')     
 
       
-
 
 
 
