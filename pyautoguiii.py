@@ -155,7 +155,7 @@ while number_played_games < 2 :   #and thanks_user != ''
                 break  
 
         elif which_game_Rock_Paper_Scissors == 'User - User' :
-            username_1 = py.prompt(text='enter the first name player please', title='Name panel', default='first name player')
+            username_1 = py.prompt(text='enter your name please', title='Name panel', default='first name player')
             username_2 = py.prompt(text='enter the second name player please', title='Name panel', default='second name player')
             if How_determine_winner == 'Whoever reaches the entry number' :
                 while user_1 < round_number or user_2 < round_number :
