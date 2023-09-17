@@ -334,24 +334,24 @@ while number_played_games < 2 :
 
         random_number = random.randint(1, len_int_number + 1)
 
-        entry_random_number = int(py.prompt(text=f'guess and enter your number', title='Entery random number'))
+        entry_random_number = int(py.prompt(text=f'guess and enter your random number', title='Entery random number'))
 
         while rounds < how_many_round :
             rounds += 1
             if entry_random_number == random_number :
-                entry_random_number = py.alert(text=f'great {entry_random_number} is the currect number', title='Win panel')
+                entry_random_number = py.alert(text=f'💯💯💯 great 💯💯💯 \n{entry_random_number} is the currect number', title='Win panel')
                 win_alert = py.alert(text=f'congratulations, you win the game in {rounds - 1} rounds ', title='Win panel')
                 break
             elif entry_random_number > random_number :
-                entry_random_number = int(py.prompt(text=f'Round {rounds}, {entry_random_number} is bigger than real number guess again enter another number', title='Entery random number'))
-            else : #entry_random_number < random_number :
-                entry_random_number = int(py.prompt(text=f'Round {rounds}, {entry_random_number} is lower than real number guess again enter another number', title='Entery random number'))
+                entry_random_number = int(py.prompt(text=f'{entry_random_number} is bigger than real number \nguess again and enter another number \nRound {rounds}/{how_many_round}, ', title='Entery random number'))
+            else : 
+                entry_random_number = int(py.prompt(text=f'{entry_random_number} is lower than real number \nguess again and enter another number \nRound {rounds}/{how_many_round}', title='Entery random number'))
         else: 
-            lose_alert = py.alert(text=f'We are sorry your chance is finish, you lose the game \nComputer number was {random_number}', title='Lose panel')
+            lose_alert = py.alert(text=f'Your chance is finished \nyou lose the game \nComputer number was {random_number}', title='Lose panel')
 
-        menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Esm_Famil', 'Mouse_Movement', 'Exit'])
+        menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
-    elif menu_game_panel == 'Gol_ya_Pooch' :
+    elif menu_game_panel == 'Gol_ya_Pooch' :    #dfjhfgjkhklljliuk
         number_played_games += 1
         user_gol_ya_pooch = 0
         bot_gol_ya_pooch = 0
