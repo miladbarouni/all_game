@@ -8,7 +8,7 @@ confirmation_details = 0
 number_played_games = 0
 
 all_bot_name = ['Milad', 'Misaq', 'Abas', 'Mohammad', 'Aida', 'Neda', 'Sepideh', 'Mahsa'] 
-action = ['Rock', 'Paper', 'Scissor']
+action = ['✊', '✋', '✌️']
 user_1 = 0
 user_2 = 0
 bot_1 = 0
@@ -85,7 +85,7 @@ else :
                     quit_panel = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
                     break
                
-            username = py.prompt(text='First enter your name please', title='Name panel') 
+username = py.prompt(text='First enter your name please', title='Name panel') 
 while not username :                                                                                                    
         canceling = py.confirm(text='An error has occurred, this error may be due to exiting the program or due to not entering the name', title='Unknow error panel', buttons=['Enter a name', 'Exit'])
         if canceling == 'Enter a name' :
@@ -98,11 +98,11 @@ else :
 
 number_played_games = 0
 
-menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Esm_Famil', 'Mouse_Movement', 'Change username', 'Exit'])
-while number_played_games < 2 :   #and thanks_user != ''
+menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
+while number_played_games < 2 : 
 
     if menu_game_panel == 'Change username' :
-        username = py.prompt(text=f'{username} Enter your new name please', title='New name panel') 
+        username = py.prompt(text=f'{username} Enter your new username please', title='New username panel') 
         while not username :                                                                                                    
             canceling = py.confirm(text='An error has occurred, this error may be due to exiting the program or due to not entering the name', title='Unknow error panel', buttons=['Enter a name', 'Exit'])
             if canceling == 'Enter a name' :
@@ -111,7 +111,7 @@ while number_played_games < 2 :   #and thanks_user != ''
                 canceling_2 = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
                 break    
         else :
-            menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Esm_Famil', 'Mouse_Movement', 'Change username', 'Exit'])
+            menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
     elif menu_game_panel == '✊_✋_✌️' :
         number_played_games += 1
@@ -124,13 +124,13 @@ while number_played_games < 2 :   #and thanks_user != ''
                 canceling = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
                 break
         else:
-            which_game_Rock_Paper_Scissors = py.confirm(text='which game do you want ?', title='select game panel', buttons=['User - Bot', 'Bot - Bot', 'User - User', 'Exit'])
+            which_game_Rock_Paper_Scissors = py.confirm(text='which game do you want ?', title='select game panel', buttons=['👫 - 👽', '👽 - 👽', '👫 - 👫', 'Exit'])
 
         round_number = int(py.prompt(text='How many round do you want to play ?', title='round panel', default='How many round'))
         How_determine_winner = py.confirm(text='How to determine the winner ?', title='Determine panel', buttons=['Whoever reaches the entry number', 'Only play the entry number'])
-        if which_game_Rock_Paper_Scissors == 'User - Bot' :
+        if which_game_Rock_Paper_Scissors == '👫 - 👽' :
             random_bot_name_1 = random.choice(all_bot_name)
-            bot_name = py.alert(text=f'Robot name is {random_bot_name_1}', title='User - Bot panel')
+            bot_name = py.alert(text=f'Robot name is {random_bot_name_1}', title='👫 - 👽 panel')
             if How_determine_winner == 'Whoever reaches the entry number' :
                 while user_1 < round_number and bot_1 < round_number :
                     random_action = random.choice(action)
@@ -139,20 +139,25 @@ while number_played_games < 2 :   #and thanks_user != ''
                     if which_game == random_action :
                         user_1 += 1
                         bot_1 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \n{random_bot_name_1} selected {random_action} \nResualt : \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='User - Bot panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \n{random_bot_name_1} selected {random_action} \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='👫 - 👽 panel')
                     elif ( which_game == '✋' and random_action == '✊' ) or ( which_game == '✊' and random_action == '✌️' ) or ( which_game == '✌️' and random_action == '✋' ) :
                         user_1 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} You win \n{random_bot_name_1} selected {random_action} \nResualt : \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='User - Bot panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} You win \n{random_bot_name_1} selected {random_action} \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='👫 - 👽 panel')
                     else :
                         bot_1 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} You lose \nResualt : \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='User - Bot panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} You lose \n{random_bot_name_1} selected {random_action} \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='👫 - 👽 panel')
                 
-                if user_1 > bot_1 :
-                    finally_resualt = py.alert(text=f'{username} you win the game, Resualt : {user_1} - {bot_1}', title='Finally result')
-                elif user_1 < bot_1 :
-                    finally_resualt = py.alert(text=f'{username} you lose the game, Resualt : {user_1} - {bot_1}', title='Finally result')
+                if user_1 == round_number and bot_1 == 0 :
+                    finally_max_score_resualt = py.alert(text=f'{username} Great 💯 \nYou get max score \n{round_number}/{round_number}', title='Finally result')
+                elif bot_1 == round_number  and user_1 == 0 :
+                    finally_max_score_resualt = py.alert(text=f'{random_bot_name_1} get max score 👿 \nYou lose all round 😨', title='Finally result')
                 else :
-                    finally_resualt = py.alert(text=f'{username} the game is equal, Resualt : {user_1} - {bot_1}', title='Finally result')
+                    if user_1 > bot_1 :
+                        finally_resualt = py.alert(text=f'{username} you win the game, Full resualt : {user_1} - {bot_1}', title='Finally result')
+                    elif user_1 < bot_1 :
+                        finally_resualt = py.alert(text=f'{username} you lose the game, Full resualt : {user_1} - {bot_1}', title='Finally result')
+                    else :
+                        finally_resualt = py.alert(text=f'{username} the game is equal, Full resualt : {user_1} - {bot_1}', title='Finally result')
                 break
 
             else :
@@ -163,23 +168,27 @@ while number_played_games < 2 :   #and thanks_user != ''
                     if which_game == random_action :
                         user_1 += 1
                         bot_1 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \nResualt : \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='User - Bot panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \n{random_bot_name_1} selected {random_action} \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='👫 - 👽 panel')
                     elif ( which_game == '✋' and random_action == '✊' ) or ( which_game == '✊' and random_action == '✌️' ) or ( which_game == '✌️' and random_action == '✋' ) :
                         user_1 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} You win \nResualt : \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='User - Bot panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} You win \n{random_bot_name_1} selected {random_action} \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='👫 - 👽 panel')
                     else :
                         bot_1 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} You lose \nResualt : \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='User - Bot panel')
-            
-                if user_1 > bot_1 :
-                    finally_resualt = py.alert(text=f'{username} you win the game, Resualt : {user_1} - {bot_1}', title='Finally result')
-                elif user_1 < bot_1 :
-                    finally_resualt = py.alert(text=f'{username} you lose the game, Resualt : {user_1} - {bot_1}', title='Finally result')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} You lose \n{random_bot_name_1} selected {random_action} \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='👫 - 👽 panel')
+                
+                if user_1 == round_number and bot_1 == 0 :
+                    finally_max_score_resualt = py.alert(text=f'{username} Great 💯 \nYou get max score \n{round_number}/{round_number}', title='Finally result')
+                elif bot_1 == round_number and user_1 == 0 :
+                    finally_max_score_resualt = py.alert(text=f'{random_bot_name_1} get max score 👿 \nYou lose all round 😨', title='Finally result')
                 else :
-                    finally_resualt = py.alert(text=f'{username} your game is equal, Resualt : {user_1} - {bot_1}', title='Finally result')
-                break  
-
-        elif which_game_Rock_Paper_Scissors == 'User - User' :
+                    if user_1 > bot_1 :
+                        finally_resualt = py.alert(text=f'{username} you win the game, Full resualt : {user_1} - {bot_1}', title='Finally result')
+                    elif user_1 < bot_1 :
+                        finally_resualt = py.alert(text=f'{username} you lose the game, Full resualt : {user_1} - {bot_1}', title='Finally result')
+                    else :
+                        finally_resualt = py.alert(text=f'{username} the game is equal, Full resualt : {user_1} - {bot_1}', title='Finally result')
+                break
+        # elif which_game_Rock_Paper_Scissors == '👫 - 👫' :
             username_1 = py.prompt(text='enter your name please', title='Name panel', default='first name player')
             username_2 = py.prompt(text='enter the second name player please', title='Name panel', default='second name player')
             if How_determine_winner == 'Whoever reaches the entry number' :
