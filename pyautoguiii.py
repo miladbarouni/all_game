@@ -364,7 +364,7 @@ while number_played_games < 2 :
         number_played_games += 1
         user_gol_ya_pooch = 0
         bot_gol_ya_pooch = 0
-        name_box = ['🌺', '🤲']
+        name_box = ['Box 1', 'Box 2']
         welcome_panel = py.confirm(text='Welcome to Gol_ya_Pooch game, Are you ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
         while welcome_panel == 'No' :
             canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
@@ -378,7 +378,7 @@ while number_played_games < 2 :
         round_game_played = 0
         while round_game_played < how_many_round : 
             random_name_box = random.choice(name_box)
-            Gol_ya_Pooch_panel = py.confirm(text='Select one of the box ?', title='Gol_ya_Pooch panel', buttons=['🌺', '🤲'])
+            Gol_ya_Pooch_panel = py.confirm(text='Select one of the box ?', title='Gol_ya_Pooch panel', buttons=['Box 1', 'Box 2'])
 
             round_game_played += 1
             if Gol_ya_Pooch_panel == random_name_box :
