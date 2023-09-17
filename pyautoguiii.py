@@ -60,8 +60,14 @@ else :
             break
     if welcome_panel == 'Set password' :
         password_login = py.prompt(text='Enter your password', title='Password panel')
+        password_login_repeat = py.prompt(text='Repeat enter your password', title='Password panel')
+        while password_login != password_login_repeat :
+            password_login = py.prompt(text='Your password not same enter again', title='Password panel')
+            password_login_repeat = py.prompt(text='Repeat enter your password', title='Password panel')
+
         password_login_input = py.prompt(text='         Your password is set \nTo continue enter your password', title='Password panel')
         password_wrong = 0
+
         while password_login != password_login_input :
             password_wrong += 1
             if password_wrong < 3 :
@@ -70,7 +76,7 @@ else :
                 quit_panel = py.alert(text='You entered wrong password 3 times \n        We wish see you later again', title='Quit panel')
                 break
         else :
-            welcome_panel = py.confirm(text='Thanks for set your password', title='Welcome panel', buttons=['Menu game', 'Exit'])
+            welcome_panel = py.confirm(text='You logged in', title='Welcome panel', buttons=['Menu game', 'Exit'])
             while welcome_panel == 'Exit' :
                 quit_panel = py.confirm(text='Are you sure to quit ? ', title='Quit panel', buttons=['Yes', 'No'])
                 if quit_panel == 'No' :
@@ -79,7 +85,7 @@ else :
                     quit_panel = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
                     break
                
-username = py.prompt(text='First enter your name please', title='Name panel') 
+            username = py.prompt(text='First enter your name please', title='Name panel') 
 while not username :                                                                                                    
         canceling = py.confirm(text='An error has occurred, this error may be due to exiting the program or due to not entering the name', title='Unknow error panel', buttons=['Enter a name', 'Exit'])
         if canceling == 'Enter a name' :
@@ -476,7 +482,6 @@ else :
     stop_free_game = py.alert(text='Sorry for stopying the game \nYou can just play 2 free games \nfor buying unlimited version check "Details" \nEmail : milad.baroun@gmail.com \nPhone number : +989177719601', title='Finish game :(')     
 
       
-
 
 
 
