@@ -188,7 +188,7 @@ while number_played_games < 2 :
                     else :
                         finally_resualt = py.alert(text=f'{username} the game is equal, Full resualt : {user_1} - {bot_1}', title='Finally result')
                 break
-        elif which_game_Rock_Paper_Scissors == '👫 - 👫' :  #sdgsdgsdfhgdfshfgjkhgkyu
+        elif which_game_Rock_Paper_Scissors == '👫 - 👫' :  
             username_1 = py.prompt(text='enter your name please', title='Name panel', default='first name player')
             username_2 = py.prompt(text='enter the second name player please', title='Name panel', default='second name player')
             if How_determine_winner == 'Whoever reaches the entry number' :
@@ -199,20 +199,25 @@ while number_played_games < 2 :
                     if which_game_1 == which_game_2 :
                         user_1 += 1
                         user_2 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \nResualt : \n {username_1} : {user_1} \n {username_2} : {user_2}', title='User - User panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \n{username_1} selected {which_game_1} \n{username_2} selected {which_game_2} \n{username_1} {user_1}  \n{username_2} {user_2}', title='👫 - 👫 panel')
                     elif ( which_game_1 == '✋' and which_game_2 == '✊' ) or ( which_game_1 == '✊' and which_game_2 == '✌️' ) or ( which_game_1 == '✌️' and which_game_2 == '✋' ) :
                         user_1 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {username_1} win \nResualt : \n {username_1} : {user_1} \n {username_2} : {user_2}', title='User - User panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {username_1} win \n{username_1} selected {which_game_1} \n{username_2} selected {which_game_2} \n{username_1} {user_1} \n{username_2} {user_2}', title='👫 - 👫 panel')
                     else :
-                        bot_1 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {username_2} win \nResualt : \n {username_1} : {user_1} \n {username_2} : {user_2}', title='User - User panel')
+                        user_2 += 1
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {username_2} win \n{username_2} selected {which_game_2} \n{username_1} selected {which_game_1} \n{username_2} {user_2} \n{username_1} {user_1}', title='👫 - 👫 panel')
 
-                if user_1 > user_2 :
-                    finally_resualt = py.alert(text=f'{username_1} win the game, Resualt : {username_1} {user_1} - {user_2} {username_2}', title='Finally result')
-                elif user_1 < user_2 :
-                    finally_resualt = py.alert(text=f'{username_2} win the game, Resualt : {username_1} {user_1} - {user_2} {username_2}', title='Finally result')
+                if user_1 == round_number and user_2 == 0 :
+                    finally_max_score_resualt = py.alert(text=f'{username_1} Great 💯 \nYou get max score \n{round_number}/{round_number}', title='Finally result')
+                elif user_2 == round_number and user_1 == 0 :
+                    finally_max_score_resualt = py.alert(text=f'{username_2} Great 💯 \nYou get max score \n{round_number}/{round_number}', title='Finally result')
                 else :
-                    finally_resualt = py.alert(text=f'game is equal, Resualt : {username_1} {user_1} - {user_2} {username_2}', title='Finally result')
+                    if user_1 > user_2 :
+                        finally_resualt = py.alert(text=f'{username_1} you win the game, Full resualt : {user_1} - {user_2}', title='Finally result')
+                    elif user_1 < bot_1 :
+                        finally_resualt = py.alert(text=f'{username_2} you win the game, Full resualt : {user_1} - {user_2}', title='Finally result')
+                    else :
+                        finally_resualt = py.alert(text=f'The game is equal, Full resualt : {user_1} - {user_2}', title='Finally result')
                 break
 
             else :
@@ -223,34 +228,36 @@ while number_played_games < 2 :
                     if which_game_1 == which_game_2 :
                         user_1 += 1
                         user_2 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \nResualt : \n {username_1} : {user_1} \n {username_2} : {user_2}', title='User - User panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \n{username_1} selected {which_game_1} \n{username_2} selected {which_game_2} \n{username_1} {user_1}  \n{username_2} {user_2}', title='👫 - 👫 panel')
                     elif ( which_game_1 == '✋' and which_game_2 == '✊' ) or ( which_game_1 == '✊' and which_game_2 == '✌️' ) or ( which_game_1 == '✌️' and which_game_2 == '✋' ) :
                         user_1 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {user_1} win \nResualt : \n {username_1} : {user_1} \n {username_2} : {user_2}', title='User - User panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {username_1} win \n{username_1} selected {which_game_1} \n{username_2} selected {which_game_2} \n{username_1} {user_1} \n{username_2} {user_2}', title='👫 - 👫 panel')
                     else :
-                        bot_1 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {user_2} win \nResualt : \n {username_1} : {user_1} \n {username_2} : {user_2}', title='User - User panel')
-                
-                if user_1 > user_2 :
-                    finally_resualt = py.alert(text=f'{username_1} win the game, Resualt : {username_1} {user_1} - {user_2} {username_2}', title='Finally result')
-                elif user_1 < user_2 :
-                    finally_resualt = py.alert(text=f'{username_2} win the game, Resualt : {username_1} {user_1} - {user_2} {username_2}', title='Finally result')
-                else :
-                    finally_resualt = py.alert(text=f'game is equal, Resualt : {username_1} {user_1} - {user_2} {username_2}', title='Finally result')
-                break 
+                        user_2 += 1
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {username_2} win \n{username_2} selected {which_game_2} \n{username_1} selected {which_game_1} \n{username_2} {user_2} \n{username_1} {user_1}', title='👫 - 👫 panel')
 
-        elif which_game_Rock_Paper_Scissors == 'Bot - Bot' :
+                if user_1 == round_number and user_2 == 0 :
+                    finally_max_score_resualt = py.alert(text=f'{username_1} Great 💯 \nYou get max score \n{round_number}/{round_number}', title='Finally result')
+                elif user_2 == round_number and user_1 == 0 :
+                    finally_max_score_resualt = py.alert(text=f'{username_2} Great 💯 \nYou get max score \n{round_number}/{round_number}', title='Finally result')
+                else :
+                    if user_1 > user_2 :
+                        finally_resualt = py.alert(text=f'{username_1} you win the game, Full resualt : {user_1} - {user_2}', title='Finally result')
+                    elif user_1 < bot_1 :
+                        finally_resualt = py.alert(text=f'{username_2} you win the game, Full resualt : {user_1} - {user_2}', title='Finally result')
+                    else :
+                        finally_resualt = py.alert(text=f'The game is equal, Full resualt : {user_1} - {user_2}', title='Finally result')
+                break
+
+        elif which_game_Rock_Paper_Scissors == '👽 - 👽' :
             random_bot_name_1 = random.choice(all_bot_name)
-            bot_name_1 = py.alert(text=f'First Robot name is {random_bot_name_1}', title='Bot - Bot panel')
+            bot_name_1 = py.alert(text=f'First Robot name is {random_bot_name_1}', title='👽 - 👽 panel')
             random_bot_name_2 = random.choice(all_bot_name)
 
             while random_bot_name_1 == random_bot_name_2 :
                 random_bot_name_2 = random.choice(all_bot_name)
-                if random_bot_name_1 != random_bot_name_2 :
-                    random_bot_name_2 = random.choice(all_bot_name)
-            pass
-
-            bot_name_2 = py.alert(text=f'Second Robot name is {random_bot_name_2}', title='Bot - Bot panel')
+          
+            bot_name_2 = py.alert(text=f'Second Robot name is {random_bot_name_2}', title='👽 - 👽 panel')
 
             if How_determine_winner == 'Whoever reaches the entry number' :
                 while bot_1 < round_number and bot_2 < round_number :
@@ -260,20 +267,26 @@ while number_played_games < 2 :
                     if random_action_1 == random_action_2 :
                         bot_1 += 1
                         bot_2 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \nResualt : \n {random_bot_name_1} {random_action_1} {bot_1} \n {random_bot_name_2} {random_action_2} {bot_1} ', title='Bot - Bot panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \n{random_bot_name_1} selected {random_action_1} \n{random_bot_name_2} selected {random_action_2} \n {random_bot_name_1} {bot_1} \n{random_bot_name_2} {bot_2}', title='👽 - 👽 panel')
                     elif ( random_action_1 == '✋' and random_action_2 == '✊' ) or ( random_action_1 == '✊' and random_action_2 == '✌️' ) or ( random_action_1 == '✌️' and random_action_2 == '✋' ) :
                         bot_1 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {random_bot_name_1} win the game, Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {random_bot_name_1} win the game \n{random_bot_name_1} selected {random_action_1} \n{random_bot_name_2} selected {random_action_2} \n {random_bot_name_1} {bot_1} \n{random_bot_name_2} {bot_2}', title='👽 - 👽 panel')
                     else :
                         bot_2 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {random_bot_name_2} win the game, Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
-                if bot_1 > bot_2 :
-                    finally_resualt = py.alert(text=f'{random_bot_name_1} win the game, Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
-                elif bot_1 < bot_2 :
-                    finally_resualt = py.alert(text=f'{random_bot_name_2} win the game, Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {random_bot_name_2} win the game \n{random_bot_name_1} selected {random_action_1} \n{random_bot_name_2} selected {random_action_2} \n {random_bot_name_1} {bot_1} \n{random_bot_name_2} {bot_2}', title='👽 - 👽 panel')
+                if bot_1 == round_number and bot_2 == 0 :
+                    finally_max_score_resualt = py.alert(text=f'{random_bot_name_1} Great 💯 \nget max score \n{round_number}/{round_number}', title='Finally result')
+                elif bot_2 == round_number and bot_1 == 0 :
+                    finally_max_score_resualt = py.alert(text=f'{random_bot_name_2} Great 💯 \nget max score \n{round_number}/{round_number}', title='Finally result')
                 else :
-                    finally_resualt = py.alert(text=f'game is equal, Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
+                    if bot_1 > bot_2 :
+                        finally_resualt = py.alert(text=f'{random_bot_name_1} win the game, Full resualt : {bot_1} - {bot_2}', title='Finally result')
+                    elif bot_1 < bot_2 :
+                        finally_resualt = py.alert(text=f'{random_bot_name_2} win the game, Full resualt : {bot_1} - {bot_2}', title='Finally result')
+                    else :
+                        finally_resualt = py.alert(text=f'The game is equal, Full resualt : {bot_1} - {bot_2}', title='Finally result')
                 break
+
 
             else :
                 while number_played_Rock_Paper_Scissors < round_number :
@@ -283,20 +296,24 @@ while number_played_games < 2 :
                     if random_action_1 == random_action_2 :
                         bot_1 += 1
                         bot_2 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal, Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} is equal \n{random_bot_name_1} selected {random_action_1} \n{random_bot_name_2} selected {random_action_2} \n {random_bot_name_1} {bot_1} \n{random_bot_name_2} {bot_2}', title='👽 - 👽 panel')
                     elif ( random_action_1 == '✋' and random_action_2 == '✊' ) or ( random_action_1 == '✊' and random_action_2 == '✌️' ) or ( random_action_1 == '✌️' and random_action_2 == '✋' ) :
                         bot_1 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} , Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {random_bot_name_1} win the game \n{random_bot_name_1} selected {random_action_1} \n{random_bot_name_2} selected {random_action_2} \n {random_bot_name_1} {bot_1} \n{random_bot_name_2} {bot_2}', title='👽 - 👽 panel')
                     else :
                         bot_2 += 1
-                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors}, Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
-                
-                if bot_1 > bot_2 :
-                    finally_resualt = py.alert(text=f'{random_bot_name_1} win the game, Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
-                elif bot_1 < bot_2 :
-                    finally_resualt = py.alert(text=f'{random_bot_name_2} win the game, Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
+                        resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} {random_bot_name_2} win the game \n{random_bot_name_1} selected {random_action_1} \n{random_bot_name_2} selected {random_action_2} \n {random_bot_name_1} {bot_1} \n{random_bot_name_2} {bot_2}', title='👽 - 👽 panel')
+                if bot_1 == round_number and bot_2 == 0 :
+                    finally_max_score_resualt = py.alert(text=f'{random_bot_name_1} Great 💯 \nget max score \n{round_number}/{round_number}', title='Finally result')
+                elif bot_2 == round_number and bot_1 == 0 :
+                    finally_max_score_resualt = py.alert(text=f'{random_bot_name_2} Great 💯 \nget max score \n{round_number}/{round_number}', title='Finally result')
                 else :
-                    finally_resualt = py.alert(text=f'game is equal, Resualt : {random_bot_name_1} {random_action_1} {bot_1} - {bot_2} {random_action_2} {random_bot_name_2} ', title='Bot - Bot panel')
+                    if bot_1 > bot_2 :
+                        finally_resualt = py.alert(text=f'{random_bot_name_1} win the game, Full resualt : {bot_1} - {bot_2}', title='Finally result')
+                    elif bot_1 < bot_2 :
+                        finally_resualt = py.alert(text=f'{random_bot_name_2} win the game, Full resualt : {bot_1} - {bot_2}', title='Finally result')
+                    else :
+                        finally_resualt = py.alert(text=f'The game is equal, Full resualt : {bot_1} - {bot_2}', title='Finally result')
                 break
 
     elif menu_game_panel == 'Guess_number' :
@@ -491,7 +508,6 @@ else :
     stop_free_game = py.alert(text='Sorry for stopying the game \nYou can just play 2 free games \nfor buying unlimited version check "Details" \nEmail : milad.baroun@gmail.com \nPhone number : +989177719601', title='Finish game :(')     
 
       
-
 
 
 
