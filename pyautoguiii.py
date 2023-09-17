@@ -355,21 +355,21 @@ while number_played_games < 2 :
         number_played_games += 1
         user_gol_ya_pooch = 0
         bot_gol_ya_pooch = 0
-        name_box = ['Box 1', 'Box 2']
+        name_box = ['🌺', '🤲']
         welcome_panel = py.confirm(text='Welcome to Gol_ya_Pooch game, Are you ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
         while welcome_panel == 'No' :
             canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
-            if canceling == 'Yes' :
+            if canceling == 'No' :
+                welcome_panel = py.confirm(text='Welcome to Gol_ya_Pooch game, Are you ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
+            else :
                 canceling_2 = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
                 break
-            elif canceling == 'No' :
-                welcome_panel = py.confirm(text='Welcome to Gol_ya_Pooch game, Are you ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
         
         how_many_round = int(py.prompt(text='How many rounds do you want to try your luck ?', title='Entery round number'))
         round_game_played = 0
         while round_game_played < how_many_round : 
             random_name_box = random.choice(name_box)
-            Gol_ya_Pooch_panel = py.confirm(text='Select one of the box ?', title='Gol_ya_Pooch panel', buttons=['Box 1', 'Box 2'])
+            Gol_ya_Pooch_panel = py.confirm(text='Select one of the box ?', title='Gol_ya_Pooch panel', buttons=['🌺', '🤲'])
 
             round_game_played += 1
             if Gol_ya_Pooch_panel == random_name_box :
@@ -379,35 +379,28 @@ while number_played_games < 2 :
                 resualt_Gol_ya_Pooch_game = py.alert(text=f'round {round_game_played}/{how_many_round} , Resualt : You lose', title='Gol_ya_Pooch panel')
                 bot_gol_ya_pooch += 1
 
-        all_result_gol_ya_pooch = py.alert(text=f'All result : \n{username} {user_gol_ya_pooch} \nRobot {bot_gol_ya_pooch}', title='Lose panel')
+        all_result_gol_ya_pooch = py.alert(text=f'All result : \n{username} {user_gol_ya_pooch} \nRobot {bot_gol_ya_pooch}', title='Result panel')
 
-        menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Esm_Famil', 'Mouse_Movement', 'Exit'])
+        menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
-
-
-
-
-
-    elif menu_game_panel == 'Esm_Famil' :
-        number_played_games += 1
-        print('d')
 
     
     elif menu_game_panel == 'Jorat_Haghighat' :
-        number_played_games += 1
-        jorat_list = ['Kole direct inestat ro neshon bede', 'Dad bezan bego man divoonam', 'Be sorat random be yeki az mokhatabat zang bezan bego dooset daram', 'Ye sandewich be hesab khodet sefaresh bede', 'Az inja ta park tv piade boro', 'Ye music ke doos dari ba sedaye boland bekhon']
-        haghighat_list = ['Chandbar ashegh shodi ?', 'Bozorg tarin razet chie ?', 'Ajibtarin adati ke dari chie ?', 'Age ye rooz omr koni chi kar tooye on rooz mikoni ?', 'Age mitonesi chizi ro toye sooratet taghir bedi chi bood ?']
+        pass
+        # number_played_games += 1
+        # jorat_list = ['Kole direct inestat ro neshon bede', 'Dad bezan bego man divoonam', 'Be sorat random be yeki az mokhatabat zang bezan bego dooset daram', 'Ye sandewich be hesab khodet sefaresh bede', 'Az inja ta park tv piade boro', 'Ye music ke doos dari ba sedaye boland bekhon']
+        # haghighat_list = ['Chandbar ashegh shodi ?', 'Bozorg tarin razet chie ?', 'Ajibtarin adati ke dari chie ?', 'Age ye rooz omr koni chi kar tooye on rooz mikoni ?', 'Age mitonesi chizi ro toye sooratet taghir bedi chi bood ?']
 
-        welcome_Jorat_Haghighat_panel = py.confirm(text='Welcome to Jorat_Haghighat game, Ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
-        while welcome_Mouse_Movement_panel == 'No' :
-            canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
-            if canceling == 'No' :
-                welcome_Jorat_Haghighat_panel = py.confirm(text='Welcome to Jorat_Haghighat game, Ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
-            else :
-                canceling = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
-                break
-        else:
-                welcome_Jorat_Haghighat_panel = py.confirm(text='Select one of the box', title='Welcome panel', buttons=['Yes', 'No'])
+        # welcome_Jorat_Haghighat_panel = py.confirm(text='Welcome to Jorat_Haghighat game, Ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
+        # while welcome_Mouse_Movement_panel == 'No' :
+        #     canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
+        #     if canceling == 'No' :
+        #         welcome_Jorat_Haghighat_panel = py.confirm(text='Welcome to Jorat_Haghighat game, Ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
+        #     else :
+        #         canceling = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
+        #         break
+        # else:
+        #         welcome_Jorat_Haghighat_panel = py.confirm(text='Select one of the box', title='Welcome panel', buttons=['Yes', 'No'])
 
 
 
