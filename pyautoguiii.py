@@ -158,7 +158,9 @@ while number_played_games < 2 :
                         finally_resualt = py.alert(text=f'{username} you lose the game, Full resualt : {user_1} - {bot_1}', title='Finally result')
                     else :
                         finally_resualt = py.alert(text=f'{username} the game is equal, Full resualt : {user_1} - {bot_1}', title='Finally result')
-                break
+                                
+                menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
+
 
             else :
                 while number_played_Rock_Paper_Scissors < round_number :
@@ -187,7 +189,9 @@ while number_played_games < 2 :
                         finally_resualt = py.alert(text=f'{username} you lose the game, Full resualt : {user_1} - {bot_1}', title='Finally result')
                     else :
                         finally_resualt = py.alert(text=f'{username} the game is equal, Full resualt : {user_1} - {bot_1}', title='Finally result')
-                break
+                
+                menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
+
         elif which_game_Rock_Paper_Scissors == '👫 - 👫' :  
             username_1 = py.prompt(text='enter your name please', title='Name panel', default='first name player')
             username_2 = py.prompt(text='enter the second name player please', title='Name panel', default='second name player')
@@ -218,7 +222,8 @@ while number_played_games < 2 :
                         finally_resualt = py.alert(text=f'{username_2} you win the game, Full resualt : {user_1} - {user_2}', title='Finally result')
                     else :
                         finally_resualt = py.alert(text=f'The game is equal, Full resualt : {user_1} - {user_2}', title='Finally result')
-                break
+                
+                menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
             else :
                 while number_played_Rock_Paper_Scissors < round_number :
@@ -247,7 +252,9 @@ while number_played_games < 2 :
                         finally_resualt = py.alert(text=f'{username_2} you win the game, Full resualt : {user_1} - {user_2}', title='Finally result')
                     else :
                         finally_resualt = py.alert(text=f'The game is equal, Full resualt : {user_1} - {user_2}', title='Finally result')
-                break
+                
+                menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
+
 
         elif which_game_Rock_Paper_Scissors == '👽 - 👽' :
             random_bot_name_1 = random.choice(all_bot_name)
@@ -285,8 +292,8 @@ while number_played_games < 2 :
                         finally_resualt = py.alert(text=f'{random_bot_name_2} win the game, Full resualt : {bot_1} - {bot_2}', title='Finally result')
                     else :
                         finally_resualt = py.alert(text=f'The game is equal, Full resualt : {bot_1} - {bot_2}', title='Finally result')
-                break
-
+                
+                menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
             else :
                 while number_played_Rock_Paper_Scissors < round_number :
@@ -314,7 +321,9 @@ while number_played_games < 2 :
                         finally_resualt = py.alert(text=f'{random_bot_name_2} win the game, Full resualt : {bot_1} - {bot_2}', title='Finally result')
                     else :
                         finally_resualt = py.alert(text=f'The game is equal, Full resualt : {bot_1} - {bot_2}', title='Finally result')
-                break
+                
+                menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
+
 
     elif menu_game_panel == 'Guess_number' :
         number_played_games += 1
@@ -351,7 +360,7 @@ while number_played_games < 2 :
 
         menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
-    elif menu_game_panel == 'Gol_ya_Pooch' :    #dfjhfgjkhklljliuk
+    elif menu_game_panel == 'Gol_ya_Pooch' :   
         number_played_games += 1
         user_gol_ya_pooch = 0
         bot_gol_ya_pooch = 0
@@ -402,6 +411,7 @@ while number_played_games < 2 :
         # else:
         #         welcome_Jorat_Haghighat_panel = py.confirm(text='Select one of the box', title='Welcome panel', buttons=['Yes', 'No'])
 
+            # menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
 
 
@@ -423,7 +433,7 @@ while number_played_games < 2 :
                 canceling = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
                 break
         else:
-            all_round_game = int(py.prompt(text=f'After start, you have 3 second to select a point \nHow many rounds do you want to play ? \n', title='Round number panel'))
+            all_round_game = int(py.prompt(text=f'After start, you have 2 second to select a point \nHow many rounds do you want to play ? \n', title='Round number panel'))
 
         round_win = 0
         round_game_played = 0
@@ -484,21 +494,21 @@ while number_played_games < 2 :
                 finally_result_point = py.alert(text=f'Finally result {username} lose the game \nWin {round_win} round \nLose {round_game_played - round_win} round', title='result Mouse movement game')     
             else :
                 finally_result_point = py.alert(text=f'Finally result {username} draw the game \nWin {round_win} round \nLose {round_game_played - round_win} round', title='result Mouse movement game')     
-            menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['Rock_Paper_Scissors', 'Guess_number', 'Gol_ya_Pooch', 'Esm_Famil', 'Mouse_Movement', 'Exit'])
-
-
-
-
+            
+            menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
 
     elif menu_game_panel == 'Exit' :
-        break
-
-
-
+        canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
+        while canceling == 'No' :
+            menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
+        else :
+            canceling = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
+            break
+    
 
 else :
-    stop_free_game = py.alert(text='Sorry for stopying the game \nYou can just play 2 free games \nfor buying unlimited version check "Details" \nEmail : milad.baroun@gmail.com \nPhone number : +989177719601', title='Finish game :(')     
+    stop_free_game = py.alert(text='Sorry 😓 for stopying the game \nYou can just play 2 free games \nfor buying unlimited version check "Details" \nEmail 📧 : milad.baroun@gmail.com \nPhone number 📞 : +989177719601', title='Finish game :(')     
 
       
 
