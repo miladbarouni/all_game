@@ -188,7 +188,7 @@ while number_played_games < 2 :
                     else :
                         finally_resualt = py.alert(text=f'{username} the game is equal, Full resualt : {user_1} - {bot_1}', title='Finally result')
                 break
-        # elif which_game_Rock_Paper_Scissors == '👫 - 👫' :
+        elif which_game_Rock_Paper_Scissors == '👫 - 👫' :  #sdgsdgsdfhgdfshfgjkhgkyu
             username_1 = py.prompt(text='enter your name please', title='Name panel', default='first name player')
             username_2 = py.prompt(text='enter the second name player please', title='Name panel', default='second name player')
             if How_determine_winner == 'Whoever reaches the entry number' :
