@@ -193,7 +193,7 @@ while number_played_games < 2 :
                 menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
         elif which_game_Rock_Paper_Scissors == '👫 - 👫' :  
-            username_1 = py.prompt(text='enter your name please', title='Name panel', default='first name player')
+            username_1 = py.prompt(text='enter the first name player please', title='Name panel', default='first name player')
             username_2 = py.prompt(text='enter the second name player please', title='Name panel', default='second name player')
             if How_determine_winner == 'Whoever reaches the entry number' :
                 while user_1 < round_number and user_2 < round_number :
@@ -395,23 +395,44 @@ while number_played_games < 2 :
 
     
     elif menu_game_panel == 'Jorat_Haghighat' :
-        pass
-        # number_played_games += 1
-        # jorat_list = ['Kole direct inestat ro neshon bede', 'Dad bezan bego man divoonam', 'Be sorat random be yeki az mokhatabat zang bezan bego dooset daram', 'Ye sandewich be hesab khodet sefaresh bede', 'Az inja ta park tv piade boro', 'Ye music ke doos dari ba sedaye boland bekhon']
-        # haghighat_list = ['Chandbar ashegh shodi ?', 'Bozorg tarin razet chie ?', 'Ajibtarin adati ke dari chie ?', 'Age ye rooz omr koni chi kar tooye on rooz mikoni ?', 'Age mitonesi chizi ro toye sooratet taghir bedi chi bood ?']
+        number_played_games += 1
+        round_game_played = 0
+        jorat_list = ['Kole direct inestat ro neshon bede', 'Dad bezan bego man divoonam', 'Be sorat random be yeki az mokhatabat zang bezan bego dooset daram', 'Ye sandewich be hesab khodet sefaresh bede', 'Az inja ta park tv piade boro', 'Ye music ke doos dari ba sedaye boland bekhon']
+        haghighat_list = ['Chandbar ashegh shodi ?', 'Bozorg tarin razet chie ?', 'Ajibtarin adati ke dari chie ?', 'Age ye rooz omr koni chi kar tooye on rooz mikoni ?', 'Age mitonesi chizi ro toye sooratet taghir bedi chi bood ?']
 
-        # welcome_Jorat_Haghighat_panel = py.confirm(text='Welcome to Jorat_Haghighat game, Ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
-        # while welcome_Mouse_Movement_panel == 'No' :
-        #     canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
-        #     if canceling == 'No' :
-        #         welcome_Jorat_Haghighat_panel = py.confirm(text='Welcome to Jorat_Haghighat game, Ready to start ?', title='Welcome panel', buttons=['Yes', 'No'])
-        #     else :
-        #         canceling = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
-        #         break
-        # else:
-        #         welcome_Jorat_Haghighat_panel = py.confirm(text='Select one of the box', title='Welcome panel', buttons=['Yes', 'No'])
+        welcome_Jorat_Haghighat_panel = py.confirm(text='Welcome to Jorat_Haghighat game, Ready to start 👀 ?', title='Welcome panel', buttons=['Yes', 'No'])
+        while welcome_Jorat_Haghighat_panel == 'No' :
+            canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
+            if canceling == 'No' :
+                welcome_Jorat_Haghighat_panel = py.confirm(text='Welcome to Jorat_Haghighat game, Ready to start 👀 ?', title='Welcome panel', buttons=['Yes', 'No'])
+            else :
+                canceling = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
+                break
+        else:
+            username_1 = py.prompt(text='enter the first name please please', title='Name panel', default='first name player')
+            username_2 = py.prompt(text='enter the second name player please', title='Name panel', default='second name player')
+            how_many_round = int(py.prompt(text='How many rounds do you want to play ?', title='Entery round number'))
+            while round_game_played < how_many_round :
+                round_game_played += 1
+                welcome_Jorat_Haghighat_panel = py.confirm(text=f'{username_1} Select one of the box', title='Jorat_Haghighat panel', buttons=['Jorat', 'Haghighat'])
+                if welcome_Jorat_Haghighat_panel == 'Jorat' :
+                    random_jorat_input = random.choice(jorat_list)
+                    jorat_resualt = py.alert(text=f'{random_jorat_input}', title='Jorat action')
+                else :
+                    random_haghighat_input = random.choice(haghighat_list)
+                    haghighat_resualt = py.alert(text=f'{random_haghighat_input}', title='Haghighat action')
 
-            # menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
+                welcome_Jorat_Haghighat_panel = py.confirm(text=f'{username_2} Select one of the box', title='Jorat_Haghighat panel', buttons=['Jorat', 'Haghighat'])
+                if welcome_Jorat_Haghighat_panel == 'Jorat' :
+                    random_jorat_input = random.choice(jorat_list)
+                    jorat_resualt = py.alert(text=f'{random_jorat_input}', title='Jorat action')
+                else :
+                    random_haghighat_input = random.choice(haghighat_list)
+                    haghighat_resualt = py.alert(text=f'{random_haghighat_input}', title='Haghighat action')
+
+            finish_jorat_haghighat = py.alert(text='Game is finished', title='Jorat_Haghighat panel')
+
+        menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
 
 
