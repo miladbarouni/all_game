@@ -1099,6 +1099,114 @@ if welcome_panel_2 == 'Menu' :
 
 
 
+##########################################
+##########################################
+##########################################
+
+
+
+
+
+
+import pyautogui
+import random
+import time
+import pymsgbox
+
+# animals_list = ['ahjk', 'dhfd', 'syegt', 'fofdyhk', 'asb']
+# animals_list_entry = []
+# fruits_list = ['ayij', 'fgyhkhg', 'sdgsd', 'asia']
+# fruits_list_entry = []
+# mix_list = animals_list + fruits_list
+# alefba = random.choice(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'])
+# score = 0
+# random.choice(alefba)
+# random.shuffle(mix_list)
+# random.choice(alefba)[0]
+# alefba = 'a'
+
+# menu_game = pyautogui.confirm(text='Name - Family Game \nIf you want to know about playin game read "Learn"', buttons=['Sart', 'Learn'])
+# alert_learn = pyautogui.alert(text='dfhyfgjnghjghkujyhgkuyj', title='Learning game')
+# show_all_list = pyautogui.alert(text=f'       read and save the words in your mind and when you ready start the game \n{mix_list}', title='Minding')
+# random_letter = pyautogui.alert(text=f'Random letter is {alefba}', title='Random letter')
+# for i in range(1, 4) :
+#     animal_question = pyautogui.prompt(text=f'Enter a name of anmial by {alefba} ', title=f'Random {i}', timeout=5000)
+#     if animal_question.lower() in animals_list and animal_question[0] == alefba :
+#         animals_list_entry.append(animal_question)
+#         score += 1
+
+# alert_learn = pyautogui.alert(text=f'You answered right : {animals_list_entry} and score is {score}', title='Random Word')
+
+
+
+
+
+#################################
+#################################
+
+
+
+animals_list_existence = ['asb', 'shotor', 'shir', 'zarafe', 'kangoro']
+animals_list_no_existence = ['khar', 'zarafe', 'ahoo', 'fil', 'raso']
+animals_list_entry = []
+
+fruits_list_existence = ['sib', 'kivi', 'moz', 'golabi']
+fruits_list_no_existence = ['khiar', 'portegal', 'toot', 'anar']
+fruits_list_entry = []
+
+random.shuffle(animals_list_existence)
+random.shuffle(animals_list_no_existence)
+
+random.shuffle(fruits_list_existence)
+random.shuffle(fruits_list_no_existence)
+
+
+mix_list_animals = animals_list_existence + animals_list_no_existence
+random.choice(mix_list_animals)
+
+mix_list_fruits = fruits_list_existence + fruits_list_no_existence
+# random.choice(mix_list_fruits)
+
+mix_all_list = mix_list_animals + mix_list_fruits
+score = 0
+
+menu_game = pyautogui.confirm(text='IQ Question Game \nIf you want to know about playin game read "Learn"', buttons=['Sart', 'Learn'])
+alert_learn = pyautogui.alert(text='dfhyfgjnghjghkujyhgkuyj', title='Learning game')
+show_all_list = pyautogui.alert(text=f'       read and save the words in your mind and when you ready start the game \n{mix_all_list}', title='Minding word')
+round_game = int(pyautogui.prompt(text='How many round do you want to play ?', title='Round'))
+
+for i in range(1, round_game + 1) :
+    animal_question = pyautogui.confirm(text='Which animal was existence in list', title=f'Question', buttons=[f'{random.choice(mix_list_animals)}' ,f'{random.choice(mix_list_animals)}', f'{random.choice(mix_list_animals)}', f'{random.choice(mix_list_animals)}', f'{random.choice(mix_list_animals)}', f'{random.choice(mix_list_animals)}', f'{random.choice(mix_list_animals)}', f'{random.choice(mix_list_animals)}', f'{random.choice(mix_list_animals)}', f'{random.choice(mix_list_animals)}', f'{random.choice(mix_list_animals)}'])
+    if animal_question.lower() in animals_list_existence :
+        animals_list_entry.append(animal_question)
+        score += 1
+    elif animal_question.lower() in animals_list_no_existence :
+        fruits_list_entry.append(animal_question)
+print(animals_list_entry)
+print(fruits_list_entry)
+
+# for i in range(1, 4) :
+#     animal_question = pyautogui.prompt(text=f'Enter a name of anmial by {alefba} ', title=f'Random {i}', timeout=5000)
+#     print(animal_question)
+# for i in range(1, 4) :
+#     animal_question = pyautogui.prompt(text=f'Enter a name of anmial by {alefba} ', title=f'Random {i}', timeout=5000)
+#     print(animal_question)
+
+# alert_learn = pyautogui.alert(text=f'You answered right : {animals_list_entry} and score is {score}', title='Random Word')
+
+
+# pyautogui.sleep(3)
+# pyautogui.PAUSE = 2
+# pyautogui.press('enter')
+
+
+
+
+
+
+
+
+
 
 
 
