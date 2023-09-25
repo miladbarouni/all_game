@@ -539,14 +539,6 @@ else :
 
 ##################################################################################################
 #################################################################################################
-
-
-
-
-
-
-
-
 import pyautogui as py
 import random
 import time
@@ -564,6 +556,9 @@ bot_2 = 0
 number_played_Rock_Paper_Scissors = 0
 number_played_games = 0
 save_password_to_play = False
+have_pass = False
+coin_shop = 20
+
 # پنل خوشامدگویی    
 welcome_panel = py.confirm(text='              Welcome to the game, before playing \nplease read both of the "Rulls" game and "Details" to start', title='Welcome panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
 
@@ -571,8 +566,10 @@ welcome_panel = py.confirm(text='              Welcome to the game, before playi
 while True :
 # دکمه منو
     if welcome_panel == 'Menu game' :
+# عبور از منو خوشامدگویی به شرط مطالعه دو گزینه
         if confirmation_details == True and confirmation_rulls_game == True :
             username = py.prompt(text='First enter your name please', title='Name panel') 
+# حتما باید نام کاربری وارد شود
             while not username :                                                                                                    
                 canceling = py.confirm(text='An error has occurred, this error may be due to exiting the program or due to not entering the name', title='Unknow error panel', buttons=['Enter a name', 'Exit'])
                 if canceling == 'Enter a name' :
@@ -591,6 +588,7 @@ while True :
         welcome_panel = py.confirm(text='please read both of the Rulls game and Details to start', title='Welcome panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
 # دکمه رول گیم
     elif welcome_panel == 'Rulls game' :
+# گزینه تایید و عدم تایید قوانین بازی
         rulls_game_panel = py.confirm(text='Rull of the game: \n1. Playing the games means you have accepted the complete rules of the game \n2. When your opponent is a robot, his movement is chosen by chance and you have to accept the result \n3. If you make a change in the source code of the game, this is cheating and you will lose the game \n4. During the game, two users should not show each other their next move to the opponent \n5. If you quit the game, your opponent will win the game \n6.this version of game is free so you can play just 2 games \n7.for buying full version check "Details" to see communication ways', title='Rulls game panel', buttons=['I agree', 'I dont agree'])
         if rulls_game_panel == 'I agree' :
             welcome_panel = py.confirm(text='Thanks for reading "Rulls" game \nif you dont read "Details" game yet \nread and click on Menu game to start', title='Rulls game panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
@@ -611,6 +609,7 @@ while True :
         details_game_panel = py.alert(text='This package game produced by Milad Barouni \nBuying and the Ways of communication : \nby Email : milad.baroun@gmail.com \nPhone number : +989177719601', title='Details panel')
         welcome_panel = py.confirm(text='Thanks for reading "details" game \nif you dont read "rulls" game yet \nread and click on Menu game to start', title='Details game panel', buttons=['Menu game', 'Rulls game', 'Details', 'Exit'])
         confirmation_details = True
+# دکمه خروج    
     elif welcome_panel == 'Exit' :
         quit_panel = py.confirm(text='Are you sure to quit ? ', title='Quit panel', buttons=['Yes', 'No'])
         if quit_panel == 'No' :
@@ -628,7 +627,7 @@ if welcome_panel == 'Set password' :
 
     password_login_input = py.prompt(text=f'        {username} Your password is set \nTo continue enter your password', title='Password panel')
     password_wrong = 0
-
+    have_pass = True
     while password_login != password_login_input :
         password_wrong += 1
         if password_wrong < 3 :
@@ -637,11 +636,12 @@ if welcome_panel == 'Set password' :
             quit_panel = py.alert(text='You entered wrong password 3 times \n        We wish see you later again', title='Quit panel')
             break
     else :
+# گزینه ذخیره سازی پسورد یا عدم ذخیره سازی پسورد        
         save_password = py.confirm(text='Do you want to save your password ', title='Welcome panel', buttons=['Yes', 'No'])   
         if save_password == 'Yes' :
             save_password_to_play = True
 
-        welcome_panel_2 = py.confirm(text='You logged in', title='Welcome panel', buttons=['Menu game', 'Exit'])
+        welcome_panel = py.confirm(text='You logged in', title='Welcome panel', buttons=['Menu game', 'Exit'])
 # دکمه خروج از بازی
 while welcome_panel == 'Exit' :
     quit_panel = py.confirm(text='Are you sure to quit ? ', title='Quit panel', buttons=['Yes', 'No'])
@@ -651,12 +651,12 @@ while welcome_panel == 'Exit' :
         quit_panel = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
         break
                
-
-if welcome_panel_2 == 'Menu' :
-    
+# دکمه منو
+if welcome_panel == 'Menu game' :
+# منو بازی ها
     menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
     while number_played_games < 2 : 
-
+# دکمه تغییر نام کاربری
         if menu_game_panel == 'Change username' :
             username = py.prompt(text=f'{username} Enter your new username please', title='New username panel') 
             while not username :                                                                                                    
@@ -668,29 +668,41 @@ if welcome_panel_2 == 'Menu' :
                     break    
             else :
                 menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
-
+# بازی سنگ _ کاغذ _ قیچی
         elif menu_game_panel == '✊_✋_✌️' :
+            if save_password_to_play != True and have_pass == True :
+                entry_password_login = py.prompt(text='Enter your password to login', title='Password panel')
+                if entry_password_login == password_login :
+                    save_password_to_play = True
+
+                while save_password_to_play != True :
+                    password_login_repeat = py.prompt(text=f'Wrong password, enter your password', title='Password panel')
+                    if password_login_repeat == password_login :
+                        save_password_to_play = True
+                        break
             number_played_games += 1
             welcome_Rock_Paper_Scissors_panel = py.confirm(text='Welcome to ✊_✋_✌️ game, ready to start ?', title='Welcome ✊_✋_✌️ panel ', buttons=['Yes', 'No'])
             while welcome_Rock_Paper_Scissors_panel == 'No' :
-                canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
-                if canceling == 'No' :
-                    welcome_Rock_Paper_Scissors_panel = py.confirm(text='Welcome to ✊_✋_✌️ game, Are you ready to start ?', title='Welcome ✊_✋_✌️ panel ', buttons=['Yes', 'No'])
-                else :
-                    canceling = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
-                    break
+                    canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
+                    if canceling == 'No' :
+                        welcome_Rock_Paper_Scissors_panel = py.confirm(text='Welcome to ✊_✋_✌️ game, Are you ready to start ?', title='Welcome ✊_✋_✌️ panel ', buttons=['Yes', 'No'])
+                    else :
+                        canceling = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
+                        break
             else:
-                which_game_Rock_Paper_Scissors = py.confirm(text='which game do you want ?', title='select game panel', buttons=['👫 - 👽', '👽 - 👽', '👫 - 👫', 'Exit'])
-
+                    which_game_Rock_Paper_Scissors = py.confirm(text='which game do you want ?', title='select game panel', buttons=['👫 - 👽', '👽 - 👽', '👫 - 👫', 'Exit'])
             round_number = int(py.prompt(text='How many round do you want to play ?', title='round panel', default='How many round'))
             How_determine_winner = py.confirm(text='How to determine the winner ?', title='Determine panel', buttons=['Whoever reaches the entry number', 'Only play the entry number'])
+# بازی ربات با انسان            
             if which_game_Rock_Paper_Scissors == '👫 - 👽' :
                 random_bot_name_1 = random.choice(all_bot_name)
                 bot_name = py.alert(text=f'Robot name is {random_bot_name_1}', title='👫 - 👽 panel')
+# سنگ کاغذ قیچی و گزینه هرکس به تعداد راند گفته شده برسد
                 if How_determine_winner == 'Whoever reaches the entry number' :
                     while user_1 < round_number and bot_1 < round_number :
                         random_action = random.choice(action)
-                        which_game = py.confirm(text=f'{username} which action do you want to select ?', title='select action panel', buttons=['✊', '✋', '✌️'])
+                        which_game = py.confirm(text=f'{username} which action do you want to select ?', title='select action panel', buttons=['✊', '✋', '✌️'])                      
+# اجرای دو بازی رایگان                        
                         number_played_Rock_Paper_Scissors += 1
                         if which_game == random_action :
                             user_1 += 1
@@ -717,7 +729,7 @@ if welcome_panel_2 == 'Menu' :
                                 
                     menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
-
+# سنگ کاغذ قیچی و گزینه بازی کردن به تعداد راند گفته شده
                 else :
                     while number_played_Rock_Paper_Scissors < round_number :
                         which_game = py.confirm(text=f'{username} which action do you want to select ?', title='select action panel', buttons=['✊', '✋', '✌️'])
@@ -733,7 +745,7 @@ if welcome_panel_2 == 'Menu' :
                         else :
                             bot_1 += 1
                             resualt_game = py.alert(text=f'round {number_played_Rock_Paper_Scissors} You lose \n{random_bot_name_1} selected {random_action} \n {username} : {user_1} \n {random_bot_name_1} : {bot_1}', title='👫 - 👽 panel')
-                
+            # امتیاز کامل گرفتن در بازی سگ کاغذ قیچی    
                     if user_1 == round_number and bot_1 == 0 :
                         finally_max_score_resualt = py.alert(text=f'{username} Great 💯 \nYou get max score \n{round_number}/{round_number}', title='Finally result')
                     elif bot_1 == round_number and user_1 == 0 :
@@ -747,10 +759,11 @@ if welcome_panel_2 == 'Menu' :
                             finally_resualt = py.alert(text=f'{username} the game is equal, Full resualt : {user_1} - {bot_1}', title='Finally result')
                 
                     menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
-
+# انسان با انسان
             elif which_game_Rock_Paper_Scissors == '👫 - 👫' :  
                 username_1 = py.prompt(text='enter the first name player please', title='Name panel', default='first name player')
                 username_2 = py.prompt(text='enter the second name player please', title='Name panel', default='second name player')
+# سنگ کاغذ قیچی و گزینه هرکس به تعداد راند گفته شده برسد                
                 if How_determine_winner == 'Whoever reaches the entry number' :
                     while user_1 < round_number and user_2 < round_number :
                         which_game_1 = py.confirm(text=f'{username_1} which action do you want to select ?', title='select action panel', buttons=['✊', '✋', '✌️'])
@@ -780,7 +793,7 @@ if welcome_panel_2 == 'Menu' :
                             finally_resualt = py.alert(text=f'The game is equal, Full resualt : {user_1} - {user_2}', title='Finally result')
                 
                     menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
-
+# سنگ کاغذ قیچی و گزینه بازی کردن به تعداد راند گفته شده
                 else :
                     while number_played_Rock_Paper_Scissors < round_number :
                         which_game_1 = py.confirm(text=f'{username_1} which action do you want to select ?', title='select action panel', buttons=['✊', '✋', '✌️'])
@@ -811,7 +824,7 @@ if welcome_panel_2 == 'Menu' :
                 
                     menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
-
+# انسان با انسان
             elif which_game_Rock_Paper_Scissors == '👽 - 👽' :
                 random_bot_name_1 = random.choice(all_bot_name)
                 bot_name_1 = py.alert(text=f'First Robot name is {random_bot_name_1}', title='👽 - 👽 panel')
@@ -823,6 +836,8 @@ if welcome_panel_2 == 'Menu' :
                 bot_name_2 = py.alert(text=f'Second Robot name is {random_bot_name_2}', title='👽 - 👽 panel')
 
                 if How_determine_winner == 'Whoever reaches the entry number' :
+# سنگ کاغذ قیچی و گزینه هرکس به تعداد راند گفته شده برسد                
+                    
                     while bot_1 < round_number and bot_2 < round_number :
                         random_action_1 = random.choice(action)
                         random_action_2 = random.choice(action)
@@ -851,6 +866,7 @@ if welcome_panel_2 == 'Menu' :
                 
                     menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
+# سنگ کاغذ قیچی و گزینه بازی کردن به تعداد راند گفته شده
                 else :
                     while number_played_Rock_Paper_Scissors < round_number :
                         random_action_1 = random.choice(action)
@@ -880,14 +896,14 @@ if welcome_panel_2 == 'Menu' :
                 
                     menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
-
+# بازی حدس عدد
         elif menu_game_panel == 'Guess_number' :
             number_played_games += 1
             rounds = 1
             len_str_number = ''
 
             how_many_len = int(py.prompt(text='Welcome to Guess number \nHow many digits is the selected number ?', title='Entery len number'))
-
+# عدد راندوم چند رقمی باشه
             while how_many_len > 5 :
                 how_many_len = int(py.prompt(text='Your digits number must be lower than 5 ,enter digits the number again ?', title='Entery len number'))
 
@@ -898,7 +914,7 @@ if welcome_panel_2 == 'Menu' :
                 len_int_number = int(len_str_number)
 
             random_number = random.randint(1, len_int_number + 1)
-
+# حدس زدن عدد توسط کاربر
             entry_random_number = int(py.prompt(text=f'guess and enter your random number', title='Entery random number'))
 
             while rounds < how_many_round :
@@ -915,7 +931,7 @@ if welcome_panel_2 == 'Menu' :
                 lose_alert = py.alert(text=f'Your chance is finished \nyou lose the game \nComputer number was {random_number}', title='Lose panel')
 
             menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
-
+# بازی گل یا پوچ
         elif menu_game_panel == 'Gol_ya_Pooch' :   
             number_played_games += 1
             user_gol_ya_pooch = 0
@@ -949,7 +965,7 @@ if welcome_panel_2 == 'Menu' :
             menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
 
-    
+# بازی جرئت و حقیقت   
         elif menu_game_panel == 'Jorat_Haghighat' :
             number_played_games += 1
             round_game_played = 0
@@ -991,7 +1007,7 @@ if welcome_panel_2 == 'Menu' :
             menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
 
-
+# بازی جابجایی موس و حدس زدن مکان موس در یکی از چهار قسمت مانیتور
         elif menu_game_panel == 'Mouse_Movement' :
             number_played_games += 1
 
@@ -1074,7 +1090,7 @@ if welcome_panel_2 == 'Menu' :
             
                 menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 
-
+# دکمه خروج بازی
         elif menu_game_panel == 'Exit' :
             canceling = py.confirm(text='Are you sure to quit the game ?', title='Quit panel', buttons=['Yes', 'No'])
             while canceling == 'No' :
@@ -1083,11 +1099,83 @@ if welcome_panel_2 == 'Menu' :
                 canceling = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
                 break
     
-
+# اتمام بازی با انجام دادن دو بازی رایگان
     else :
         stop_free_game = py.alert(text='Sorry 😓 for stopying the game \nYou can just play 2 free games \nfor buying unlimited version check "Details" \nEmail 📧 : milad.baroun@gmail.com \nPhone number 📞 : +989177719601', title='Finish game :(')     
 
       
+
+
+
+
+
+
+
+##########################
+##########################
+
+
+
+
+
+
+
+import pyautogui
+import time
+import random
+
+
+country_list = ['انگلستان', 'برزیل', 'پرتغال', 'ترکیه', 'جیبوتی', 'چک', 'دانمارک', 'رومانی', 'زیمباوه', 'ژاپن', 'سوریه', 'شیلی', 'صربستان', 'عراق', 'غنا', 'فرانسه', 'قطر', 'کوبا', 'گرجستان', 'لبنان', 'مالزی', 'نیجریه', 'ویتنام', 'هند', 'یمن']
+animal_list = ['اسب', 'بز', 'پاندا', 'طوطی', 'تیهو', 'تمساح', 'سوسک', 'سوسمار', 'حلزون', 'خرس', 'چلچله', 'جوجه تیغی', 'دارکوب', 'راسو', 'زالو', 'شاهین', 'عنکبوت', 'غوک', 'قورباغه', 'فیل', 'کانگورو', 'گوسفند', 'مار', 'لاک پشت', 'نهنگ', 'وال', 'هدهد', 'یوزپلنگ']
+object_list = ['انتن', 'بادکنک', 'پرده', 'تانک', 'ساعت', 'صابون', 'حوله', 'جارو', 'چنگال', 'دندان', 'رادیو', 'زنگ', 'ضد زنگ','شلوارک', 'عرق', 'قایق', 'فنجان', 'کادو', 'گاوصندوق', 'لامپ', 'مودم', 'نایلون', 'موس', 'هندل', 'ویدئو']
+fruits_list = ['انبه', 'به', 'پرتقال', 'جمبو', 'حصرم', 'خیار', 'دستنبو', 'ذغال اخته', 'ریواس', 'زردآلو', 'ژاژ', 'سیب', 'شفتالو', 'طالبی', 'عناب', 'غوره', 'فندق', 'قیسی', 'کیوی', 'گیلاس', 'لیموشیرین', 'موز', 'نارگیل', 'ولیک', 'هندوانه', 'یافا']
+work_lst = ['اشپزی', 'بنا', 'پزشک', 'تکنیسن', 'جراح', 'چرم دوز', 'حوله فروش', 'خلبان', 'دندانپزشک', 'ذغال فروش', 'رفتگر', 'زرگر', 'سمسار', 'شهردار', 'صافکاری', 'طلافروش', 'ظرف شو', 'عینک‌ساز', 'غواص', 'فرش فروش', 'قناد', 'کیف فروش', 'گارسون', 'لوله‌کش', 'مکانیک', 'نجار', 'واکسی', 'هندوانه فروش', 'یدک‌ فروش']
+x = ['sa', 'ds', 'ae']
+y = ['ay', 'wt', 'er']
+z = x + y
+score = 0
+random.shuffle(z)
+# print(z)
+
+letter = random.choice(z)[0]
+print(letter)
+start_time = time.time()
+end_time = start_time + 3
+
+q = random.choice(x)[0]
+w =random.choice(y)[0]
+
+while time.time() < end_time :
+    xxx = pyautogui.prompt(text='aaaa', title='d',timeout=end_time)
+    yyy = pyautogui.prompt(text='aaaa', title='d')
+    break
+yyy = pyautogui.alert(text='aaaa', title='d')
+
+if xxx.lower() in x and xxx.lower()[0] == letter :
+    score += 1
+
+print(score)
+# for i in range(10) :
+#     letter = random.choice(z)[0]
+#     print(letter)
+
+
+
+
+# mix_lists = country_list + animal_list + object_list + fruits_list + work_lst
+# random.shuffle(mix_lists)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
