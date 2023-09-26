@@ -540,6 +540,7 @@ else :
 ##################################################################################################
 #################################################################################################
 
+
 import pyautogui as py
 import random
 import time
@@ -682,7 +683,12 @@ while number_played_games < 2 :
             menu_game_panel = py.confirm(text=f'{username} Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
 # بازی سنگ _ کاغذ _ قیچی
     elif menu_game_panel == '✊_✋_✌️' :
-        
+        # ورود با رمز عبور
+        if save_password_to_play == False :
+            password_login_new = py.prompt(text='Enter your password', title='Password panel')
+        while password_login != password_login_new :
+            password_login_new = py.prompt(text='Your password not same enter again', title='Password panel')
+
         number_played_games += 1
         welcome_Rock_Paper_Scissors_panel = py.confirm(text='Welcome to ✊_✋_✌️ game, ready to start ?', title='Welcome ✊_✋_✌️ panel ', buttons=['Yes', 'No'])
         while welcome_Rock_Paper_Scissors_panel == 'No' :
@@ -694,8 +700,8 @@ while number_played_games < 2 :
                 break
         else:
             which_game_Rock_Paper_Scissors = py.confirm(text='which game do you want ?', title='select game panel', buttons=['👫 - 👽', '👽 - 👽', '👫 - 👫', 'Exit'])
-# تعیین تعداد راند بازی
-# مشخص شدن برنده به دو روش انتخابی
+        # تعیین تعداد راند بازی
+        # مشخص شدن برنده به دو روش انتخابی
         round_number = int(py.prompt(text='How many round do you want to play ?', title='round panel', default='How many round'))
         How_determine_winner = py.confirm(text='How to determine the winner ?', title='Determine panel', buttons=['Whoever reaches the entry number', 'Only play the entry number'])
         # بازی ربات با انسان            
@@ -900,6 +906,12 @@ while number_played_games < 2 :
 
     # بازی حدس عدد
     elif menu_game_panel == 'Guess_number' :
+        # ورود با رمز عبور
+        if save_password_to_play == False :
+            password_login_new = py.prompt(text='Enter your password', title='Password panel')
+        while password_login != password_login_new :
+            password_login_new = py.prompt(text='Your password not same enter again', title='Password panel')
+
         number_played_games += 1
         rounds = 1
         len_str_number = ''
@@ -935,6 +947,12 @@ while number_played_games < 2 :
         menu_game_panel = py.confirm(text=f'Select one of the game', title='Game panel', buttons=['✊_✋_✌️', 'Guess_number', 'Gol_ya_Pooch', 'Jorat_Haghighat', 'Mouse_Movement', 'Change username', 'Exit'])
     # بازی گل یا پوچ
     elif menu_game_panel == 'Gol_ya_Pooch' :   
+        # ورود با رمز عبور
+        if save_password_to_play == False :
+            password_login_new = py.prompt(text='Enter your password', title='Password panel')
+        while password_login != password_login_new :
+            password_login_new = py.prompt(text='Your password not same enter again', title='Password panel')
+
         number_played_games += 1
         user_gol_ya_pooch = 0
         bot_gol_ya_pooch = 0
@@ -969,6 +987,12 @@ while number_played_games < 2 :
 
     # بازی جرئت و حقیقت   
     elif menu_game_panel == 'Jorat_Haghighat' :
+        # ورود با رمز عبور
+        if save_password_to_play == False :
+            password_login_new = py.prompt(text='Enter your password', title='Password panel')
+        while password_login != password_login_new :
+            password_login_new = py.prompt(text='Your password not same enter again', title='Password panel')
+
         number_played_games += 1
         round_game_played = 0
         jorat_list = ['Kole direct inestat ro neshon bede', 'Dad bezan bego man divoonam', 'Be sorat random be yeki az mokhatabat zang bezan bego dooset daram', 'Ye sandewich be hesab khodet sefaresh bede', 'Az inja ta park tv piade boro', 'Ye music ke doos dari ba sedaye boland bekhon']
@@ -1011,6 +1035,12 @@ while number_played_games < 2 :
 
     # بازی جابجایی موس و حدس زدن مکان موس در یکی از چهار قسمت مانیتور
     elif menu_game_panel == 'Mouse_Movement' :
+        # ورود با رمز عبور
+        if save_password_to_play == False :
+            password_login_new = py.prompt(text='Enter your password', title='Password panel')
+        while password_login != password_login_new :
+            password_login_new = py.prompt(text='Your password not same enter again', title='Password panel')
+
         number_played_games += 1
         #مشخص شدن مقادیر ایکس و وای
         screen_size_x, screen_size_y = py.size()
@@ -1028,7 +1058,7 @@ while number_played_games < 2 :
                 canceling = py.alert(text='Bye, we hope see you soon again', title='Quit panel')
                 break
         else:
-            all_round_game = int(py.prompt(text=f'After start, you have 2 second to select a point \nHow many rounds do you want to play ? \n', title='Round number panel'))
+            all_round_game = int(py.prompt(text=f'After start, you have 2 second to select a point \n     How many rounds do you want to play ? \n', title='Round number panel'))
 
         round_win = 0
         round_game_played = 0
@@ -1106,6 +1136,9 @@ else :
     stop_free_game = py.alert(text='Sorry 😓 for stopying the game \nYou can just play 2 free games \nfor buying unlimited version check "Details" \nEmail 📧 : milad.baroun@gmail.com \nPhone number 📞 : +989177719601', title='Finish game :(')     
 
       
+
+
+
 
 
 
